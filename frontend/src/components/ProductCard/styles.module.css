@@ -1,0 +1,102 @@
+.mainContainer {
+  width: calc(49% - 10px);
+  height: 120px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.upperContainer {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  gap: 30px;
+  padding: 5px;
+}
+
+h5 {
+  max-height: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  font-size: 0.7rem;
+  overflow: hidden;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 270;
+  align-items: center;
+  justify-content: center;
+  min-width: 50%;
+}
+
+.description {
+  max-height: 37px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+
+.productImg {
+  width: 70px;
+  height: 60px;
+}
+
+.bottomContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 83%;
+}
+
+button.addToCart {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  outline: none;
+  color: var(--secondary-color);
+  background-color: var(--secondary-color-lighter);
+  border-radius: 100%;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  transition: 0.2s;
+  box-shadow: 0 0 0 0;
+  border: 2px solid transparent;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+button.addToCart:hover {
+  transform: scale(1.25);
+  border: 2px solid var(--secondary-color);
+}
+
+button.addToCart:active {
+  transform: scale(0.85);
+}
+
+@media only screen and (max-width: 800px) {
+  .mainContainer {
+    width: 98%;
+  }
+}

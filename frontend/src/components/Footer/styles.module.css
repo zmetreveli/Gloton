@@ -1,0 +1,130 @@
+.viewport {
+  height: fit-content;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.footerContainer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.footerWaveImg {
+  width: 100%;
+  height: 10;
+}
+
+.footerBackground {
+  width: 100%;
+  height: fit-content;
+  padding: 0 0 40px 0;
+  background-color: #1d1d1d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerTextContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footerLogo {
+  height: 30px;
+  filter: contrast(0.1) brightness(8);
+}
+
+h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+  flex-wrap: wrap;
+}
+
+.verticalLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 160px;
+}
+
+a {
+  color: white;
+  font-size: 0.7rem;
+  text-decoration: none;
+  outline: none;
+}
+
+.formularioButton {
+  color: white;
+  font-size: 0.7rem;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+select {
+  background-color: #303030;
+  width: fit-content;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  outline: none;
+  transition: 0.6s;
+}
+
+select:hover {
+  box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.229);
+}
+
+option {
+  background-color: #1d1d1d;
+  text-align: left;
+  padding: 10px;
+}
+
+.languageSelectoContainer {
+  background-color: transparent;
+}
+.businessModal {
+  color: white;
+  font-size: 0.7rem;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+  .footerWaveImg {
+    translate: 0px 1px;
+    width: 102%;
+  }
+
+  .footerLinks {
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}

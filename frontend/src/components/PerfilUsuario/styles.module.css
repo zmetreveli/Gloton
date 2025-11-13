@@ -1,0 +1,608 @@
+body {
+  font-family: "quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.profile {
+  max-width: 300px;
+  height: fit-content;
+  max-height: 80vh;
+  padding: 10px;
+
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  margin-top: 50px;
+  overflow: auto;
+  position: fixed;
+  right: calc(10% - 20px);
+  top: 68px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.userInfoModInput {
+  padding: 0 0px;
+  font-size: 0.8rem;
+
+  display: flex;
+  background-color: transparent;
+  margin: 0;
+}
+
+.saveUserMod:hover {
+  background-color: rgb(132, 200, 31);
+}
+
+.saveUserMod {
+  height: 100%;
+  width: 9%;
+  background-color: var(--secondary-color);
+  color: white;
+  margin: 0;
+}
+
+.checkIcon {
+  height: 60%;
+}
+
+.userInfoModDiv {
+  display: flex;
+  height: 18px;
+  background-color: var(--secondary-color-lighter);
+  width: 224px;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.userInfoContainer {
+  display: flex;
+  margin: 5px;
+  gap: 20px;
+  align-items: center;
+  height: fit-content;
+}
+
+.personIcon .passwordIcon .emailIcon {
+  width: 15px;
+  height: 15px;
+}
+
+/* scrollbar */
+
+.scrollbar {
+  width: 400px;
+  max-height: 750px;
+  overflow-y: auto;
+}
+
+/* Cabecera del perfil */
+.profileHeader {
+  color: #000000;
+  padding: 30px 20px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.promoButton {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: bold !important;
+  float: right;
+  margin-left: auto;
+  box-shadow: none;
+}
+
+/*texto p */
+
+.flecha {
+  background-color: white;
+  height: 60px;
+  width: 60px;
+
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  rotate: 45deg;
+  z-index: -1;
+}
+
+.campoP {
+  color: #706c6c;
+  text-align: justify;
+  display: flex;
+  gap: 5px;
+  transition: 0.2s;
+  align-items: center;
+}
+
+.campoP2 {
+  color: #706c6c;
+  text-align: justify;
+  display: flex;
+  gap: 5px;
+  transition: 0.2s;
+  align-items: center;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.userProfileBold {
+  font-size: 0.8rem;
+}
+
+.separador {
+  border-bottom: 1px solid #cccccc;
+}
+
+.separadorHeader {
+  border-bottom: 1px solid #cccccc;
+}
+
+/* Estilo para los nombres de las secciones y los botones Editar */
+.userSection {
+  display: flex;
+  align-items: center;
+
+  color: #706c6c;
+
+  padding: 10px;
+  font-weight: 0.8rem;
+}
+
+.userSection label {
+  font-weight: bold;
+  margin-left: auto;
+  margin-top: auto;
+  margin-right: 5px;
+}
+
+.userSection > p {
+  margin: 0;
+  text-align: left;
+}
+
+/* Estilo para los botones */
+.editButton {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: bold !important;
+  float: right;
+  margin-top: -4%;
+  box-shadow: none;
+}
+
+/* Estilo para el formulario de edición */
+.editForm {
+  padding: 20px;
+}
+
+/* Estilo para la sección de métodos de pago */
+.paymentMethods {
+  padding: 20px;
+}
+
+/* Estilo para la sección de manejo de preferencias */
+.preferenceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.preferenceTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.managePreferences {
+  font-size: 0.8rem;
+  padding: 7px 0px;
+  color: #9b9b9bff;
+  text-align: left;
+}
+
+.preferenceDescription {
+  font-size: 12px;
+  background-color: #eeeeee;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: left;
+}
+
+/* Estilo para el botón de logout */
+
+.logoutButton {
+  position: absolute;
+  top: 32px;
+  right: 28px;
+  padding: 22px;
+  font-size: 0.6rem;
+  font-family: "quicksand";
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.pencilIcon {
+  height: 15px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.4s;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  padding: 2px;
+}
+
+.campoP2:hover ~ .pencilIcon {
+  opacity: 1;
+  transform: rotate(30deg);
+}
+
+.campoP2:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  background-color: white;
+  scale: 1.02;
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px 0px var(--secondary-color);
+  animation: PulsingShadow 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes PulsingShadow {
+  from {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+  50% {
+    box-shadow: 0 1px 13px 2px var(--secondary-color);
+  }
+  to {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+}
+
+div[class^="ReactModal__Content"]::-webkit-scrollbar {
+  display: none;
+}
+
+div[class^="_profile_"]::-webkit-scrollbar {
+  overflow: hidden;
+}
+
+.modalOverlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0%);
+}
+
+.modalContent {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  overflow: auto;
+  outline: none;
+}
+
+.registerForm {
+  position: fixed;
+
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  padding: 20px 30px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.154);
+  z-index: 1000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerForm ~ .everything {
+  filter: brightness(0);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.inputPictureContainer {
+  background-color: var(--secondary-color-lighter);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.submitButton {
+  transform: translate(-50%, 90%);
+  margin-left: 50%;
+}
+
+.formSubmitButton {
+  width: 100%;
+  z-index: 1000;
+}
+
+.tuNombre {
+  margin-left: 20%;
+  transform: translate(25%, 0%);
+  color: #4b4b4b;
+}
+
+.firstInput {
+  border: none;
+  height: 27px;
+
+  outline: none;
+  width: 200px;
+  background-color: transparent;
+  font-family: "quicksand";
+  font-size: 0.8rem;
+}
+
+.firstInput::placeholder {
+  font-family: "quicksand";
+  font-size: 0.8rem;
+}
+
+.guardarCambios {
+  border-radius: 25px;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 0 20px;
+  font-family: "quicksand";
+}
+
+.guardarCambios:hover {
+  background-color: white;
+  scale: 1.02;
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px 0px var(--secondary-color);
+  animation: PulsingShadow 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes PulsingShadow {
+  from {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+  50% {
+    box-shadow: 0 1px 13px 2px var(--secondary-color);
+  }
+  to {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+}
+
+.reactSwitchCheckbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.reactSwitchLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 45px;
+  height: 25px;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.reactSwitchLabel .reactSwitchButton {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 13px;
+  height: 13px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0px #333;
+}
+
+.hola {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.reactSwitchCheckbox:checked + .reactSwitchLabel .reactSwitchButton {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.reactSwitchLabel:active .reactSwitchButton {
+  width: 28px;
+}
+
+.everything {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 999;
+  background-color: #00000048;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.loginSpan {
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 0 5px;
+  margin-left: 10px;
+
+  border-radius: 20px;
+}
+
+.loginSpan:hover {
+  background-color: var(--secondary-color);
+  scale: 1.02;
+  color: white;
+}
+
+.loginLink {
+  display: flex;
+  text-wrap: nowrap;
+  align-items: center;
+}
+
+.restaurantHistoryImg {
+  height: 50px;
+  width: 70px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.orderContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.195);
+  margin-bottom: 15px;
+}
+
+.orderContainer:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.imgTextContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.historyContainer {
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  margin-top: 50px;
+
+  position: fixed;
+  right: calc(10% - 50px);
+  top: 68px;
+  gap: 10px;
+
+  overflow-y: auto;
+  width: 390px;
+  height: fit-content;
+  max-height: 73%;
+}
+
+.historyContainer > h2 {
+  margin-bottom: 20px;
+}
+
+.historyContainer::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.orderContainer > h5 {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.owner {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  align-items: center;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+}
+
+.orderListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewImg {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.fileUpload {
+  border: 2px solid var(--secondary-color);
+  padding: 10px;
+  border-radius: 20px;
+  width: 88%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.fileUpload > p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+@media only screen and (max-width: 500px) {
+  .historyContainer {
+    width: 90%;
+    right: 6px;
+  }
+
+  .orderListContainer {
+    gap: 10px;
+  }
+}

@@ -1,0 +1,238 @@
+.container {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  height: fit-content;
+  margin-top: 120px;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.addButton {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: var(--secondary-color);
+  font-size: 1.5rem;
+  color: white;
+  position: absolute;
+  right: 30px;
+}
+
+.businessItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.businessItemContainer > p {
+  font-size: 0.8rem;
+}
+
+.businessItemContainer {
+  border-radius: 25px;
+  padding: 10px;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.leftBoxItem {
+  background-color: var(--secondary-color);
+  color: white;
+  width: 90%;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.box1 {
+  display: flex;
+  border-radius: 50px 50px 10px 10px;
+  height: fit-content;
+  padding-bottom: 30px;
+  width: 100%;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+  align-items: center;
+  background-color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.box1:hover {
+  cursor: pointer;
+  border: 2px solid var(--secondary-color);
+}
+
+.input {
+  height: 30px;
+  width: 300px;
+
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin: 10px;
+}
+
+.input::placeholder {
+  color: black;
+}
+
+.close {
+  grid-column: 6 / 7;
+  grid-row: 1 / 2;
+  height: 30px;
+  width: 60px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 3px;
+  margin: 5px;
+}
+
+.switch {
+  grid-column: 5 / 6;
+  grid-row: 1 / 2;
+  height: 30px;
+  width: 60px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 3px;
+  margin: 5px;
+}
+
+.h2 {
+  grid-column: 3 / 4;
+}
+
+.p {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  color: white;
+}
+
+.divFondoPantalla {
+  background-color: rgb(255, 255, 255);
+
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  height: fit-content;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+  border-radius: 10px 10px 50px 50px;
+  margin: 0;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1000px;
+}
+
+.pSegundo {
+  color: white;
+  grid-row: 7 / 8;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.modifyBtn {
+  display: flex;
+  justify-content: flex-end;
+  grid-row: 8 / 9;
+  grid-column: 3 / 5;
+}
+
+.slider {
+  grid-column: 2 / 6;
+  grid-row: 7 / 8;
+}
+
+.carrouselContainer {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 10px;
+  justify-content: center;
+}
+
+.add {
+  height: 30px;
+  width: 120px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 3px;
+  margin: 5px;
+}
+
+.delete {
+  height: 30px;
+  width: 120px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 3px;
+  margin: 5px;
+}
+
+.yourBrand {
+  margin: px;
+  padding: 15px;
+  font-size: 1.3rem;
+}
+
+.productName {
+  background-color: red;
+}
+
+.yourBrand {
+  color: #09827e;
+}
+
+@media only screen and (max-width: 500px) {
+  .carrouselContainer {
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+  .box1 {
+    width: 100%;
+  }
+
+  .divFondoPantalla {
+    width: 100%;
+  }
+  .input {
+    width: 75%;
+  }
+  .buttons {
+    justify-content: flex-start;
+    width: 90%;
+  }
+  .addButton {
+    position: absolute;
+    right: 3%;
+  }
+}

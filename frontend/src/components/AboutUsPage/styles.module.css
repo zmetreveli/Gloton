@@ -1,0 +1,145 @@
+.teamContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.teamMember {
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+  max-width: 800px;
+  border-radius: 200px 30px 30px 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.header {
+  margin: 0;
+  padding-top: 100px;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  z-index: 99;
+}
+
+.header > h1 {
+  padding: 30px;
+  padding-bottom: 50px;
+}
+
+.logoImg {
+  height: 100%;
+}
+
+.memberPhotoImg {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+
+  border-radius: 100%;
+  overflow: hidden;
+  margin-left: 50px;
+  border: 3px solid var(--secondary-color);
+}
+
+.rightInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memberDescription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: white; */
+  height: 100%;
+  width: 70%;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 25px;
+  padding-left: 0;
+}
+
+.memberDescription > p {
+  font-size: 0.9rem;
+  width: 80%;
+  text-align: left;
+}
+
+.memberDescription > h2 {
+  text-align: left;
+  width: 80%;
+}
+
+.contactButton {
+  height: 40px;
+  width: 40px;
+  transition: 0.2s;
+}
+
+.contactButton:hover {
+  scale: 1.2;
+}
+
+.contactButton:active {
+  scale: 1.1;
+}
+
+.memberContact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  border-radius: 50px;
+  height: 100%;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.195);
+}
+
+@media only screen and (max-width: 650px) {
+  .teamMember {
+    flex-direction: column;
+    max-width: 90%;
+    border-radius: 200px 200px 30px 30px;
+  }
+
+  .rightInfo {
+    flex-direction: column;
+  }
+
+  .memberPhotoImg {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+  .memberDescription {
+    padding: 0;
+    padding-bottom: 15px;
+    width: 90%;
+  }
+
+  .memberDescription > p {
+    text-align: center;
+  }
+
+  .memberDescription > h2 {
+    text-align: center;
+  }
+
+  .memberContact {
+    flex-direction: row;
+    margin-bottom: 40px;
+    width: 70%;
+  }
+}

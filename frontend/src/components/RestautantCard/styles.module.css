@@ -1,0 +1,107 @@
+.mainContainer {
+  width: 220px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  z-index: 1;
+  transition: 0.2s;
+}
+
+.mainContainer:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.mainContainer:active {
+  scale: 1.05;
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+  height: 120px;
+  width: 220px;
+}
+
+.restaurantCardImg {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.5s;
+  object-fit: cover;
+}
+
+.restaurantCategory {
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
+  background-color: rgba(0, 0, 0, 0.576);
+  color: white;
+  padding: 2.5px 5px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.offer {
+  position: absolute;
+  background-color: var(--terciary-color);
+  top: -11%;
+  right: 6%;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 2.5px 5px;
+  font-weight: 600;
+}
+
+.restaurantText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  gap: 3px;
+}
+
+.secondLine {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  gap: 5px;
+  height: 26px;
+}
+.likeIcon {
+  height: 20px;
+}
+
+.scooterIcon {
+  height: 15px;
+}
+
+.opinionCounter {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.scooterAside {
+  display: flex;
+  background-color: var(--terciary-color);
+  align-items: center;
+  gap: 5px;
+  padding: 1px 3px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}

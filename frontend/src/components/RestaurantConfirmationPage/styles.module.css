@@ -1,0 +1,95 @@
+.viewport {
+  height: fit-content;
+  width: 100vw;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.confirmationHeader {
+  background-color: var(--primary-color);
+  height: 30%;
+  min-height: fit-content;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.individualItemContainer {
+  background-color: rgba(245, 233, 141, 0.277);
+  padding: 10px;
+  border-radius: 25px;
+  width: 300px;
+  height: 50px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.188);
+  transition-property: border;
+  transition: 0.3s;
+}
+
+.individualItemContainer:hover {
+  border: 2px solid rgba(187, 178, 107, 0.74);
+}
+
+.thumbsUpImg {
+  height: 60px;
+}
+
+.h1Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.wavySvg {
+  width: 100%;
+}
+
+.listContainer {
+  padding-top: 20px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  width: fit-content;
+  border-radius: 20px;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+}
+
+.transportFees {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+  width: 300px;
+  height: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: 0 0 20px 7px rgba(0, 0, 0, 0.106);
+}

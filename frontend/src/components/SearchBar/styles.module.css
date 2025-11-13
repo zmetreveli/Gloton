@@ -1,0 +1,42 @@
+.searchBar {
+  width: 350px;
+  height: 40%;
+  background-color: rgba(255, 255, 255, 0.805);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 30px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 150px;
+}
+
+.searchIcon {
+  height: 12px;
+}
+
+.searchInput {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  font-size: 1rem;
+  width: 70px;
+  transition: 0.3s;
+}
+
+.searchInput:focus {
+  width: 80%;
+  text-align: left;
+}
+
+.searchInput:focus::placeholder {
+  color: transparent;
+}

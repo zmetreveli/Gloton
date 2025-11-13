@@ -1,0 +1,212 @@
+.navBar {
+  height: 100px;
+  width: 100%;
+  background-color: #bcdbdb7c;
+  backdrop-filter: blur(12px);
+  margin: 0;
+  z-index: 1000;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 0 20px;
+  gap: 30px;
+  z-index: 9999;
+}
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: calc(100% - 550px);
+  position: absolute;
+}
+
+.rightContainer {
+  position: absolute;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: fit-content;
+
+  right: 10%;
+}
+
+.logo {
+  height: 45px;
+  filter: contrast(0.1) sepia(1) brightness(1) saturate(99) hue-rotate(179deg)
+    brightness(1.25);
+  flex-grow: 0.5;
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: 0.2s;
+  position: absolute;
+  left: 10%;
+  top: 31%;
+}
+
+.logoUnlogged {
+  height: 45px;
+  filter: contrast(0.1) sepia(1) brightness(1) saturate(99) hue-rotate(179deg)
+    brightness(1.25);
+  flex-grow: 0.5;
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: 0.2s;
+
+  left: 10%;
+  top: 25%;
+}
+
+.logo:hover {
+  scale: 1.1;
+}
+
+.logo:active {
+  scale: 0.9;
+}
+
+p {
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+div.navBarButtons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: rgba(240, 248, 255, 0.425);
+  border: none;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.092);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.779);
+  cursor: pointer;
+}
+
+button:active {
+  scale: 0.9;
+}
+
+.userIcon {
+  height: 20px;
+}
+
+.listIcon {
+  height: 20px;
+}
+
+.locationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  white-space: nowrap;
+  width: 3vw;
+  max-width: 400px;
+  text-overflow: ellipsis;
+  display: none;
+}
+
+.locationContainer > p {
+  text-overflow: ellipsis;
+}
+
+.locationIcon {
+  height: 17px;
+}
+
+.getStartedButton {
+  font-family: "quicksand";
+  color: white;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 0 0 0;
+  background-color: var(--secondary-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoContainerUnlogged {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.getStartedContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.getStartedButton:hover {
+  background-color: white;
+  scale: 1.05;
+  color: var(--secondary-color);
+  box-shadow: 0 0 30px 0px var(--secondary-color);
+  animation: PulsingShadow 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes PulsingShadow {
+  from {
+    box-shadow: 0 0 30px 0px var(--secondary-color);
+  }
+  50% {
+    box-shadow: 0 5px 20px 0px var(--secondary-color);
+  }
+  to {
+    box-shadow: 0 0 30px 0px var(--secondary-color);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+
+  .searchBarContainer {
+    width: calc(100% - 260px);
+    left: 5%;
+  }
+
+  div.navBarButtons {
+    gap: 12px;
+  }
+
+  .rightContainer {
+    right: 14%;
+  }
+
+  .getStartedButton {
+    margin-right: 60px;
+  }
+}

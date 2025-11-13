@@ -1,0 +1,48 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "e2e"
+  ],
+  "scripts": {
+    "start:frontend": "dotenv -- turbo run dev --scope='frontend'",
+    "start:backend": "dotenv -- turbo run dev --scope='backend'",
+    "dev": "dotenv -- turbo run dev",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000 --detectOpenHandles --coverage"
+  },
+  "devDependencies": {
+    "cypress": "^13.6.4",
+    "dotenv-cli": "^7.0.0",
+    "supertest": "^6.3.4",
+    "turbo": "^1.10.16"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@react-google-maps/api": "^2.20.7",
+    "@vis.gl/react-google-maps": "^0.5.0",
+    "axios": "^1.6.2",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.1",
+    "handlebars": "^4.7.8",
+    "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "mailgun.js": "^10.2.1",
+    "mongodb-memory-server": "^9.1.6",
+    "react-cool-onclickoutside": "^1.7.0",
+    "react-credit-cards-2": "^1.0.3",
+    "react-drag-drop-files": "^2.3.10",
+    "react-hook-form": "^7.48.2",
+    "react-icons": "^4.12.0",
+    "react-modal": "^3.16.1",
+    "react-responsive-modal": "^6.4.2",
+    "react-router": "^6.21.0",
+    "react-spinners": "^0.13.8",
+    "use-places-autocomplete": "^4.0.1"
+  }
+}

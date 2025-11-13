@@ -1,0 +1,20 @@
+.iconContainer > img {
+  width: 20px;
+}
+
+.iconContainer {
+  background-color: rgba(255, 233, 108, 0.397);
+  width: fit-content;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restaurantStats {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}

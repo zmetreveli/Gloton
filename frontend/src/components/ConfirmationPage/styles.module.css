@@ -1,0 +1,135 @@
+.viewport {
+  height: fit-content;
+  width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: fit-content;
+  padding: 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.extraInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.confirmationHeader {
+  background-color: var(--primary-color);
+  height: 30%;
+  min-height: fit-content;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+  gap: 30px;
+  width: 100%;
+}
+
+.individualItemContainer {
+  background-color: rgba(255, 242, 142, 0.342);
+  padding: 5px;
+  border-radius: 25px;
+  width: 300px;
+  height: 20px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition-property: border;
+  transition: 0.3s;
+}
+
+.individualItemContainer:hover {
+  border: 2px solid rgba(187, 178, 107, 0.74);
+}
+
+.thumbsUpImg {
+  height: 60px;
+}
+
+.h1Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.wavySvg {
+  width: 100%;
+}
+
+.listContainer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.orderList {
+  min-height: 335px;
+  justify-content: space-between;
+}
+
+.itemList {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-direction: column;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  width: fit-content;
+  border-radius: 20px;
+  box-shadow: 0 0 50px 7px rgba(0, 0, 0, 0.123);
+}
+
+.transportFees {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+  width: 300px;
+  height: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: 0 0 20px 7px rgba(0, 0, 0, 0.106);
+}
+
+.restaurantIcon {
+  height: 70px;
+  width: 70px;
+  border-radius: 25px;
+}
+.restaurantInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}

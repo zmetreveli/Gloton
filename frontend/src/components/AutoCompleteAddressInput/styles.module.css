@@ -1,0 +1,42 @@
+.listContainer {
+  max-height: 38vw;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: white;
+  border-radius: 20px;
+  position: fixed;
+  width: 260px;
+  padding: 5px;
+  box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.14);
+}
+
+.listContainer::-webkit-scrollbar {
+  width: 0;
+}
+
+.individualPlace {
+  background-color: var(--primary-color);
+
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 5px;
+  font-size: 0.85rem;
+}
+
+.individualPlace:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.individualPlace:active {
+  background-color: #000;
+  scale: 0.9;
+}
+
+.extraInputs {
+  display: flex;
+  gap: 5px;
+}

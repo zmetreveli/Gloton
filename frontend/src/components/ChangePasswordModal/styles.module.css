@@ -1,0 +1,217 @@
+.modalOverlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0%);
+}
+
+.modalContent {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  overflow: auto;
+  outline: none;
+
+  background-color: #00000034;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  overflow: auto;
+  outline: none;
+
+  background-color: #00000034;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalSecondaryContent {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  overflow: auto;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContainer {
+  position: relative;
+  height: fit-content;
+  width: 250px;
+  background-color: white;
+  border-radius: 25px;
+  z-index: 9999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 5px;
+}
+
+.cvcInput {
+  width: 49%;
+  outline: none;
+}
+
+input {
+  background-color: var(--secondary-color-lighter);
+
+  outline: none;
+  font-size: 0.85rem;
+  font-family: "quicksand";
+}
+
+input::placeholder {
+  font-size: 0.85rem;
+  font-family: "quicksand";
+}
+
+.inputContainer {
+  display: flex;
+
+  width: 90%;
+}
+
+.agregarTarjeta {
+  border-radius: 25px;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 20px;
+  margin-top: 10px;
+  font-family: "quicksand";
+  transition: 0.2s;
+}
+
+.agregarTarjeta:hover {
+  background-color: white;
+  scale: 1.02;
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px 0px var(--secondary-color);
+  animation: PulsingShadow 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes PulsingShadow {
+  from {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+  50% {
+    box-shadow: 0 1px 13px 2px var(--secondary-color);
+  }
+  to {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+}
+
+.topText {
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 0 0;
+  color: white;
+  font-size: 10px;
+}
+
+.cardImage {
+  padding: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 5px;
+}
+
+.formContainer > button {
+  margin-top: 15px;
+}
+
+.confirmButton {
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 25px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 20px;
+  font-family: "quicksand";
+}
+
+.confirmButton:hover {
+  background-color: white;
+  scale: 1.02;
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px 0px var(--secondary-color);
+}
+
+.mapContainer {
+  height: 200px;
+  width: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0 5px;
+}
+
+.formElement {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.formGroup {
+  width: 100%;
+}
+
+.inputContainer {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

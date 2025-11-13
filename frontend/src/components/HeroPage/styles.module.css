@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.viewport {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  min-height: 70vh;
+  width: 100%;
+  background-color: var(--primary-color);
+  padding-top: 100px;
+  overflow: hidden;
+}
+
+.burgerImg {
+  height: 50%;
+  transition: 0.8s;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 40%;
+  max-width: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 800;
+  line-height: 40px;
+  font-size: 2.7rem;
+}
+
+p {
+  font-weight: 300;
+}
+
+.inputBar {
+  position: relative;
+  background-color: white;
+  width: 90%;
+  height: 2.5rem;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addressInput {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  padding: 10px;
+  font-family: "quicksand";
+  width: 100%;
+  text-align: left;
+}
+
+.addressInput::placeholder {
+  color: rgb(177, 177, 177);
+  font-size: 0.8rem;
+  font-family: "quicksand";
+}
+
+.flagIconContainer {
+  background-color: var(--secondary-color);
+  height: 100%;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.flagIcon {
+  height: 30px;
+  filter: invert();
+}
+
+.compassIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background-color: var(--secondary-color);
+}
+
+.compassIcon {
+  height: 12px;
+  filter: invert();
+}
+
+.useCurrentLocationButton {
+  border-radius: 0;
+  width: fit-content;
+  box-shadow: 0 0 0 0;
+  display: flex;
+  gap: 7px;
+  padding: 0 10px 0 0;
+  background-color: var(--secondary-color-lighter);
+  border-radius: 25px;
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  right: 10px;
+}
+
+.useCurrentLocationButtonSmall {
+  border-radius: 0;
+  width: fit-content;
+  box-shadow: 0 0 0 0;
+  display: flex;
+  gap: 7px;
+
+  background-color: var(--secondary-color-lighter);
+  border-radius: 25px;
+  height: fit-content;
+  width: fit-content;
+  margin-right: 10px;
+}
+
+button.useCurrentLocationButton:hover {
+  background-color: var(--secondary-color-light);
+}
+
+button.useCurrentLocationButton:active {
+  scale: 0.9;
+}
+
+.useCurrentLocationText {
+  text-wrap: nowrap;
+  white-space: nowrap;
+  font-size: 0.6rem;
+  color: var(--secondary-color);
+  font-family: "quicksand";
+  font-weight: 600;
+}
+
+.wavySvg {
+  width: 100%;
+  padding: 0;
+}
+
+.listContainer {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 20px;
+  max-width: calc(100% - 35px);
+}
+
+.listContainer::-webkit-scrollbar {
+  width: 0;
+}
+
+.individualPlace {
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 5px;
+}
+
+.individualPlace:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.onlyTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.burgerContainer {
+  position: relative;
+  height: 400px;
+  width: 400px;
+}
+
+.burgerSegment {
+  position: absolute;
+  height: 350px;
+  right: 7%;
+  bottom: 12%;
+  transition: 0.5s;
+}
+
+.burguerFront {
+  animation: burguerFrontAn 1s;
+}
+
+.burguerMiddle {
+  animation: burguerMiddleAn 1s;
+}
+
+.burguerBack {
+  animation: burguerBackAn 1s;
+}
+
+@keyframes burguerFrontAn {
+  from {
+    transform: scale(0.7) rotate(-20deg);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes burguerMiddleAn {
+  from {
+    transform: scale(0.8) rotate(-10deg);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes burguerBackAn {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .heroContainer {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .textContainer {
+    width: 90%;
+  }
+  .heroContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .burgerContainer {
+    width: fit-content;
+    height: 10px;
+    margin-top: 200px;
+    left: 125px;
+    margin-bottom: 20px;
+  }
+
+  .burgerSegment {
+    height: 200px;
+  }
+
+  .heroContainer {
+    padding-bottom: 50px;
+    padding-top: 100px;
+  }
+}

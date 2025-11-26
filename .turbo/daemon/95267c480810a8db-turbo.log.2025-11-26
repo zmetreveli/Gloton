@@ -1,0 +1,130 @@
+2025-11-26T07:47:10.779957Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/.turbo-cookie")}
+2025-11-26T07:47:10.779966Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:10.880410Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/1.cookie")}
+2025-11-26T07:47:10.880419Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:11.080466Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/1.cookie"), AnchoredSystemPathBuf(".turbo/daemon/95267c480810a8db-turbo.log.2025-11-26")}
+2025-11-26T07:47:11.080475Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:11.480158Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("coverage/lcov-report/src/mongo/connection/index.js.html"), AnchoredSystemPathBuf("coverage/lcov-report/src/security/jwt.js.html")}
+2025-11-26T07:47:11.480167Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:11.581399Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("coverage/lcov-report/src/index.js.html"), AnchoredSystemPathBuf("frontend/src/components/AutoCompleteAddressInput/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/DashBoard/modifyModal.jsx"), AnchoredSystemPathBuf("frontend/src/utils/Usercrud.js"), AnchoredSystemPathBuf("coverage/lcov-report/src/controller/productController.js.html"), AnchoredSystemPathBuf("backend/src/controller/usersController.js"), AnchoredSystemPathBuf("frontend/src/components/DashBoard/dashBoard.jsx"), AnchoredSystemPathBuf("backend/src/router/googlePlaces.js"), AnchoredSystemPathBuf("frontend/src/utils/api.js"), AnchoredSystemPathBuf("frontend/src/components/DashBoard/modifyBusinessModal.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/src/server.js.html"), AnchoredSystemPathBuf("frontend/src/components/PerfilUsuario/UserRegisterModal.jsx"), AnchoredSystemPathBuf("backend/src/service/index.js"), AnchoredSystemPathBuf("frontend/src/components/RestaurantGrid/index.jsx"), AnchoredSystemPathBuf("frontend/src/utils/localStorage.utils.js"), AnchoredSystemPathBuf("coverage/lcov-report/src/controller/restauranteController.js.html"), AnchoredSystemPathBuf("backend/src/index.js"), AnchoredSystemPathBuf("frontend/src/components/RestautantCard/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/ConfirmationPage/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/HomePage/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/PerfilUsuario/PerfilUsuario.jsx"), AnchoredSystemPathBuf("backend/src/router/restauranteRoutes.js"), AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/PerfilUsuario/OrderHistory.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/prettify.js"), AnchoredSystemPathBuf("frontend/src/components/DashBoard/businessModal.jsx"), AnchoredSystemPathBuf("frontend/src/components/ChangePasswordModal/index.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/src/controller/usersController.js.html"), AnchoredSystemPathBuf("frontend/src/components/formularios/formularios.jsx"), AnchoredSystemPathBuf("frontend/src/utils/fetchRestaurants.js"), AnchoredSystemPathBuf("frontend/src/components/DashBoard/menuModal.jsx"), AnchoredSystemPathBuf("frontend/src/components/RestaurantPage/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/RealRestaurants/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/PurchaseConfirmationModal/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/PerfilUsuario/UserLoginModal.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/src/router/Auth.js.html")}
+2025-11-26T07:47:11.581412Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }, WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:11.880860Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764143231858-742b23caeec31.mjs")}
+2025-11-26T07:47:11.880869Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T07:47:11.930150Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:11.980713Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764143231858-742b23caeec31.mjs")}
+2025-11-26T07:47:11.980722Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T07:47:11.980753Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:12.781299Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("coverage/lcov-report/src/mongo/connection/index.js.html"), AnchoredSystemPathBuf("coverage/lcov-report/src/security/jwt.js.html"), AnchoredSystemPathBuf(".turbo/daemon/95267c480810a8db-turbo.log.2025-11-26")}
+2025-11-26T07:47:12.781331Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:13.080946Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/ConfirmationPage/index.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/prettify.js")}
+2025-11-26T07:47:13.080959Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:13.108164Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:13.280941Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/ChangePasswordModal/index.jsx")}
+2025-11-26T07:47:13.280950Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T07:47:13.280984Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:13.781239Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/RestaurantGrid/index.jsx")}
+2025-11-26T07:47:13.781255Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T07:47:13.781308Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:14.281501Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("coverage/lcov-report/src/mongo/connection/index.js.html"), AnchoredSystemPathBuf("frontend/src/components/PurchaseConfirmationModal/index.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/src/security/jwt.js.html"), AnchoredSystemPathBuf("frontend/src/components/PerfilUsuario/PerfilUsuario.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/src/index.js.html")}
+2025-11-26T07:47:14.281509Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:14.293973Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:15.881816Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies")}
+2025-11-26T07:47:15.881850Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:16.181088Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/PerfilUsuario/PerfilUsuario.jsx"), AnchoredSystemPathBuf("frontend/src/components/RestaurantGrid/index.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/prettify.js"), AnchoredSystemPathBuf("frontend/src/components/PurchaseConfirmationModal/index.jsx"), AnchoredSystemPathBuf("coverage/lcov-report/src/index.js.html"), AnchoredSystemPathBuf("frontend/src/components/ChangePasswordModal/index.jsx"), AnchoredSystemPathBuf("frontend/src/components/ConfirmationPage/index.jsx")}
+2025-11-26T07:47:16.181099Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:16.184885Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:47:16.281262Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/1.cookie")}
+2025-11-26T07:47:16.281275Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:18.381082Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf(".turbo"), AnchoredSystemPathBuf(".turbo/cookies")}
+2025-11-26T07:47:18.381116Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:47:20.681742Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies"), AnchoredSystemPathBuf(".turbo/cookies/1.cookie"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf(".turbo")}
+2025-11-26T07:47:20.681765Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:49:46.079275Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764143386002-a2f9770ff7db2.mjs")}
+2025-11-26T07:49:46.079282Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T07:49:46.079325Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:55:03.578517Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-11-26T07:55:03.578526Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-11-26T07:55:03.677439Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package-lock.json")}
+2025-11-26T07:55:03.677446Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:10.477258Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-11-26T07:55:10.477289Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:15.377843Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-11-26T07:55:15.377875Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:38.377425Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-11-26T07:55:38.377456Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-11-26T07:55:38.576887Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-11-26T07:55:38.576907Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:40.376532Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:55:40.376562Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:46.177568Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:55:46.177588Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:48.177009Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764143748074-c3a138d680ca2.mjs")}
+2025-11-26T07:55:48.177018Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T07:55:48.177058Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T07:55:52.476689Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:55:52.476720Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:55:58.976962Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:55:58.976994Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:56:04.876836Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:56:04.876852Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:56:10.376757Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("node_modules")}
+2025-11-26T07:56:10.376776Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:56:16.977461Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:56:16.977494Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T07:56:19.676531Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("")}
+2025-11-26T07:56:19.676564Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-11-26T08:11:52.169794Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/index.html")}
+2025-11-26T08:11:52.169802Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T08:49:38.453460Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx")}
+2025-11-26T08:49:38.453482Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T08:49:49.754333Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx")}
+2025-11-26T08:49:49.754344Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T09:39:11.444591Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx")}
+2025-11-26T09:39:11.444605Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T09:39:20.548359Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx")}
+2025-11-26T09:39:20.548371Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T09:40:10.757337Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764150010697-c876002bb8f09.mjs")}
+2025-11-26T09:40:10.757346Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T09:40:10.757397Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T09:45:21.560074Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764150321451-a23ea953d328e.mjs")}
+2025-11-26T09:45:21.560090Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T09:45:21.560147Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T09:45:25.959199Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("frontend")}
+2025-11-26T09:45:25.959220Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T09:45:25.993086Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T10:15:41.349139Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764152141244-4f6a384a45487.mjs")}
+2025-11-26T10:15:41.349461Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T10:15:41.350661Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T10:16:44.848967Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764152204758-9acb78ef3f3e9.mjs")}
+2025-11-26T10:16:44.848978Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T10:16:44.849039Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T10:17:21.949149Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764152241907-a3c896b52d279.mjs")}
+2025-11-26T10:17:21.949158Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T10:17:21.974396Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T10:19:44.849088Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx")}
+2025-11-26T10:19:44.849101Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T10:20:47.048267Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/DirectionBar/index.jsx")}
+2025-11-26T10:20:47.048279Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T14:25:33.349452Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/src/components/HomePage/index.jsx")}
+2025-11-26T14:25:33.349481Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T14:38:02.557089Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/router/restauranteRoutes.js")}
+2025-11-26T14:38:02.557120Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T14:43:54.658942Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/router/restauranteRoutes.js")}
+2025-11-26T14:43:54.658961Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T14:46:28.259049Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/controller/restauranteController.js")}
+2025-11-26T14:46:28.259057Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T14:46:52.659428Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/controller/restauranteController.js")}
+2025-11-26T14:46:52.659437Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T14:48:07.259905Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("frontend/vite.config.js.timestamp-1764168487200-29384db58b8b5.mjs")}
+2025-11-26T14:48:07.259914Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/frontend"), path: AnchoredSystemPathBuf("frontend") }}))
+2025-11-26T14:48:07.269643Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T15:08:28.867087Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/mongo/connection/index.js")}
+2025-11-26T15:08:28.867110Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T15:08:35.367057Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/mongo/connection/index.js")}
+2025-11-26T15:08:35.367067Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T15:08:35.367086Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-11-26T15:11:04.268220Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend/src/mongo/connection/index.js")}
+2025-11-26T15:11:04.268230Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T15:11:10.168756Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("backend"), AnchoredSystemPathBuf("backend/src"), AnchoredSystemPathBuf("backend/src/mongo/connection/index.js"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("backend/src/mongo"), AnchoredSystemPathBuf("backend/src/mongo/connection")}
+2025-11-26T15:11:10.168768Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@monorepo/backend"), path: AnchoredSystemPathBuf("backend") }}))
+2025-11-26T15:11:10.179401Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun

@@ -17,18 +17,53 @@ export default function HomePage({ location, searchTerm }) {
   const [googleRestaurants, setGoogleRestaurants] = useState([]);
   const [coordinates, setCoordinates] = useState(null);
 
+  // useEffect(() => {
+  //   const obtenerRestaurantes = async () => {
+  //     try {
+  //       const [localResponse, googleResults] = await Promise.all([
+  //         api.get("/restaurantes"),
+  //         getNearbyRestaurants(), // ya devuelve formato correcto
+  //       ]);
+
+  //       setLocalRestaurants(localResponse.data);
+  //       setGoogleRestaurants(googleResults);
+  //     } catch (error) {
+  //       console.error("❌ Error al obtener restaurantes:", error);
+  //     }
+  //   };
+
+  //   obtenerRestaurantes();
+  // }, []);
+
+  //! --------------------------------el nuevo useEffect que depende de 'coordinates'-----------------------
+
   useEffect(() => {
     const obtenerRestaurantes = async () => {
       try {
-        const [localResponse, googleResults] = await Promise.all([
-          api.get("/restaurantes"),
-          getNearbyRestaurants(), // ya devuelve formato correcto
-        ]);
+        let localResponse = { data: [] };
+        let googleResults = [];
 
-        setLocalRestaurants(localResponse.data);
-        setGoogleRestaurants(googleResults);
+        // 1️⃣ Intentar cargar BBDD, pero si falla seguimos con Google
+        try {
+          localResponse = await api.get("/restaurantes");
+        } catch (err) {
+          console.error("⚠️ No se pudieron cargar restaurantes locales:", err);
+        }
+
+        // 2️⃣ Google siempre lo intentamos aparte
+        try {
+          googleResults = await getNearbyRestaurants();
+        } catch (err) {
+          console.error(
+            "⚠️ No se pudieron cargar restaurantes de Google:",
+            err
+          );
+        }
+
+        setLocalRestaurants(localResponse.data || []);
+        setGoogleRestaurants(googleResults || []);
       } catch (error) {
-        console.error("❌ Error al obtener restaurantes:", error);
+        console.error("❌ Error inesperado en obtenerRestaurantes:", error);
       }
     };
 

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
 
-export default function DirectionBar({ setLocation }) {
+export default function DirectionBar({ setLocation, setCoordinates }) {
   const { register } = useForm();
   const [isLocationLoading, setIsLocationLoading] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -49,12 +49,20 @@ export default function DirectionBar({ setLocation }) {
     setValue(e.target.value);
   };
 
+  // 🧭 Usar ubicación actual: ponemos dirección + coords
   const findMyLocation = () => {
     setIsLocationLoading(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
+
+        // Guardamos coords para que HomePage busque alrededor de aquí
+        if (setCoordinates) {
+          setCoordinates({ lat, lng });
+          console.log("📍 Coords desde geolocalización:", { lat, lng });
+        }
+
         fetch(
           `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&location_type=ROOFTOP&result_type=street_address&key=${
             import.meta.env.VITE_GOOGLE_API_KEY
@@ -64,10 +72,19 @@ export default function DirectionBar({ setLocation }) {
           .then((data) => {
             setIsLocationLoading(false);
             if (data.results && data.results.length > 0) {
-              setValue(data.results[0].formatted_address);
+              const address = data.results[0].formatted_address;
+              setValue(address);
+              if (setLocation) {
+                // el segundo argumento es el que ya usabas (false)
+                setLocation(address, false);
+              }
             } else {
               setValue("");
             }
+          })
+          .catch((err) => {
+            console.error("Error en geocoding de geolocalización:", err);
+            setIsLocationLoading(false);
           });
       },
       () => {
@@ -77,7 +94,8 @@ export default function DirectionBar({ setLocation }) {
     );
   };
 
-  const handleSelect = (suggestion) => {
+  // 🧠 Cuando el usuario hace click en una sugerencia (ej: "Madrid")
+  const handleSelect = async (suggestion) => {
     const fullText = suggestion.placePrediction?.text?.text;
 
     if (!fullText) {
@@ -87,7 +105,34 @@ export default function DirectionBar({ setLocation }) {
 
     setValue(fullText);
     setSuggestions([]);
-    setLocation(fullText, false);
+
+    if (setLocation) {
+      setLocation(fullText, false);
+    }
+
+    // 👉 Ahora pedimos las coords al BACKEND, no a Google directo
+    try {
+      const res = await fetch(
+        `http://localhost:3001/api/geocode?text=${encodeURIComponent(fullText)}`
+      );
+      const data = await res.json();
+
+      if (res.ok && data.lat && data.lng) {
+        const coords = { lat: data.lat, lng: data.lng };
+        console.log(
+          "📍 Coords desde dirección seleccionada (backend):",
+          coords
+        );
+
+        if (setCoordinates) {
+          setCoordinates(coords); // 🔥 Esto dispara el useEffect de HomePage
+        }
+      } else {
+        console.warn("⚠️ No se pudieron obtener coords para:", fullText, data);
+      }
+    } catch (err) {
+      console.error("❌ Error geocodificando dirección seleccionada:", err);
+    }
 
     setTimeout(() => {
       navigate("/restaurants");
@@ -100,7 +145,6 @@ export default function DirectionBar({ setLocation }) {
       const mainText = place?.structuredFormat?.mainText?.text;
       const fullText = place?.text?.text;
 
-      // Si no hay texto, no renderizar nada
       if (!fullText) return null;
 
       return (

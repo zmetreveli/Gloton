@@ -1,56 +1,56 @@
-import axios from "axios";
+import { api } from "./api";
 
-export const getNearbyRestaurants = async () => {
-  if (!navigator.geolocation) {
-    console.warn("Geolocalización no disponible en este navegador.");
-    return [];
-  }
+// Llama a tu backend /nearby y mapea el resultado al formato que usa tu app
+export async function getNearbyRestaurants(lat, lng) {
+  try {
+    const params = { lat, lng };
 
-  return new Promise((resolve) => {
-    navigator.geolocation.getCurrentPosition(
-      async ({ coords }) => {
-        const { latitude, longitude } = coords;
+    console.log("📡 [fetchRestaurants] Llamando a /nearby con:", params);
 
-        try {
-          const response = await axios.get(
-            `http://localhost:3001/api/google-places/nearby?lat=${latitude}&lng=${longitude}`
-          );
-          const results = response.data || [];
+    const response = await api.get("/nearby", { params });
 
-          const mapped = results.map((place, i) => {
-            console.log("🔍 Google Place result:", place); // <-- LOGEA CADA RESULTADO
+    const places = response.data || [];
 
-            return {
-              _id: place?.place_id ?? `google-${i}`,
-              brandName: place?.name ?? place.brandName,
-              address: place?.vicinity ?? "Sin dirección",
-              puntuacion: place?.rating,
-              votos: place?.user_ratings_total,
-              isExternal: true,
-              categoria: "google",
-              transporte: place.address,
-              oferta: false,
-              img: place?.photos?.photo_reference
-                ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${
-                    place.photos[0].photo_reference
-                  }&key=${import.meta.env.VITE_GOOGLE_API_KEY}`
-                : place.img || "https://via.placeholder.com/150",
-            };
-          });
-
-          resolve(mapped);
-        } catch (error) {
-          console.error(
-            "❌ Error al obtener restaurantes desde el backend:",
-            error
-          );
-          resolve([]);
-        }
-      },
-      (error) => {
-        console.error("❌ Error al obtener ubicación:", error);
-        resolve([]);
-      }
+    console.log(
+      "📦 [fetchRestaurants] Resultados crudos de Google:",
+      places.length
     );
-  });
-};
+
+    const mapped = places.map((place) => {
+      // Construimos la URL de la foto de Google SOLO si hay photos
+      let photoUrl;
+
+      if (place.photos && place.photos.length > 0) {
+        const ref = place.photos[0].photo_reference;
+        if (ref) {
+          photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${ref}&key=${
+            import.meta.env.VITE_GOOGLE_API_KEY
+          }`;
+        }
+      }
+
+      const result = {
+        _id: place.place_id, // id de Google
+        brandName: place.name,
+        address: place.vicinity,
+        votos: place.user_ratings_total,
+        puntuacion: place.rating,
+        categoria: "google",
+        transporte: "Google API",
+        oferta: false,
+        img: photoUrl, // 👈 IMPORTANTE: aquí va la de Google o undefined
+      };
+
+      console.log("🔍 Google Place result:", result);
+      return result;
+    });
+
+    return mapped;
+  } catch (error) {
+    console.error(
+      "❌ [fetchRestaurants] Error obteniendo restaurantes:",
+      error
+    );
+    throw error;
+  }
+}

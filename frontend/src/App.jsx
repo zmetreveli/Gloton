@@ -29,11 +29,18 @@ function App() {
   const [logged, setLogged] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // 👇 NUEVO: coords de la dirección seleccionada (Madrid, Barcelona, etc.)
+  const [coords, setCoords] = useState(null);
+
   useEffect(() => {
     const session = getUserSession();
     if (session && session.token) {
-      setIsAuthenticated(true);
-      setUser(session.user);
+      // OJO: estas funciones no existen en este código,
+      // las dejo comentadas para que no te rompa el build.
+      // setIsAuthenticated(true);
+      // setUser(session.user);
+      setLocalUser(session.user);
+      setLogged(true);
     }
   }, []);
 
@@ -51,30 +58,47 @@ function App() {
                   logged={logged}
                   setLogged={setLogged}
                 />
+
                 <Routes>
                   <Route
                     path="/"
-                    element={<HeroPage setLocation={setLocation} />}
-                  ></Route>
+                    element={
+                      <HeroPage
+                        setLocation={setLocation}
+                        // 👇 MUY IMPORTANTE: pasamos setCoords a HeroPage
+                        setCoordinates={setCoords}
+                      />
+                    }
+                  />
+
                   <Route
                     path="/restaurants"
                     element={
-                      <HomePage searchTerm={searchTerm} location={location} />
+                      <HomePage
+                        searchTerm={searchTerm}
+                        location={location}
+                        // 👇 HomePage ahora recibe las coords calculadas
+                        coords={coords}
+                      />
                     }
-                  ></Route>
+                  />
+
                   <Route
                     path="/restaurant/:restaurantId"
                     element={<RestaurantPage />}
-                  ></Route>
+                  />
+
                   <Route
                     path="/confirmation/:orderId"
                     element={<ConfirmationPage />}
-                  ></Route>
+                  />
+
                   <Route path="/formularios" element={<Formulario />} />
                   <Route path="/dashboard/" element={<DashBoard />} />
                   <Route path="/faq/" element={<FAQPage />} />
                   <Route path="/about/" element={<AboutUsPage />} />
                 </Routes>
+
                 <LandbotChat />
                 <Footer logged={logged} setLogged={setLogged} />
               </BrowserRouter>

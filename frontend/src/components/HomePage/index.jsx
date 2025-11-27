@@ -7,70 +7,78 @@ import { motion } from "framer-motion";
 import { UserContext } from "../../contexts/UserContext";
 import { api } from "../../utils/api";
 
-// Componente principal de la página de inicio
-// Aquí se muestran los restaurantes locales y los obtenidos desde Google Places
-// También se maneja la búsqueda de restaurantes por nombre
-// y la geolocalización del usuario para mostrar restaurantes cercanos
-export default function HomePage({ location, searchTerm }) {
+// HomePage: BBDD + Google cerca de la DIRECCIÓN seleccionada
+export default function HomePage({ location, searchTerm, coords }) {
   const { user } = useContext(UserContext);
+
   const [localRestaurants, setLocalRestaurants] = useState([]);
   const [googleRestaurants, setGoogleRestaurants] = useState([]);
-  const [coordinates, setCoordinates] = useState(null);
 
-  // useEffect(() => {
-  //   const obtenerRestaurantes = async () => {
-  //     try {
-  //       const [localResponse, googleResults] = await Promise.all([
-  //         api.get("/restaurantes"),
-  //         getNearbyRestaurants(), // ya devuelve formato correcto
-  //       ]);
-
-  //       setLocalRestaurants(localResponse.data);
-  //       setGoogleRestaurants(googleResults);
-  //     } catch (error) {
-  //       console.error("❌ Error al obtener restaurantes:", error);
-  //     }
-  //   };
-
-  //   obtenerRestaurantes();
-  // }, []);
-
-  //! --------------------------------el nuevo useEffect que depende de 'coordinates'-----------------------
-
+  // 1) Restaurantes locales desde la BBDD
   useEffect(() => {
-    const obtenerRestaurantes = async () => {
+    const fetchLocalRestaurants = async () => {
       try {
-        let localResponse = { data: [] };
-        let googleResults = [];
-
-        // 1️⃣ Intentar cargar BBDD, pero si falla seguimos con Google
-        try {
-          localResponse = await api.get("/restaurantes");
-        } catch (err) {
-          console.error("⚠️ No se pudieron cargar restaurantes locales:", err);
+        const localResponse = await api.get("/restaurantes");
+        console.log(
+          "📦 Restaurantes locales desde BBDD:",
+          localResponse.data?.length
+        );
+        if (localResponse.data?.length) {
+          console.log(localResponse.data[0]); // debug
         }
-
-        // 2️⃣ Google siempre lo intentamos aparte
-        try {
-          googleResults = await getNearbyRestaurants();
-        } catch (err) {
-          console.error(
-            "⚠️ No se pudieron cargar restaurantes de Google:",
-            err
-          );
-        }
-
         setLocalRestaurants(localResponse.data || []);
-        setGoogleRestaurants(googleResults || []);
       } catch (error) {
-        console.error("❌ Error inesperado en obtenerRestaurantes:", error);
+        console.error("❌ Error cargando restaurantes locales:", error);
       }
     };
 
-    obtenerRestaurantes();
+    fetchLocalRestaurants();
   }, []);
 
-  const allRestaurants = [...localRestaurants, ...googleRestaurants];
+  // 2) Restaurantes de Google cerca de LAS COORDENADAS RECIBIDAS
+  useEffect(() => {
+    const fetchGoogleRestaurants = async () => {
+      if (!coords || !coords.lat || !coords.lng) {
+        console.warn(
+          "⚠️ HomePage: no hay coords válidas, no se piden restaurantes de Google"
+        );
+        setGoogleRestaurants([]);
+        return;
+      }
+
+      try {
+        console.log(
+          "📡 HomePage: pidiendo restaurantes de Google con coords:",
+          coords
+        );
+        const googleResults = await getNearbyRestaurants(
+          coords.lat,
+          coords.lng
+        );
+        console.log(
+          "📦 HomePage: restaurantes de Google recibidos:",
+          googleResults?.length
+        );
+        setGoogleRestaurants(googleResults || []);
+      } catch (error) {
+        console.error("❌ Error cargando restaurantes de Google:", error);
+        setGoogleRestaurants([]);
+      }
+    };
+
+    fetchGoogleRestaurants();
+  }, [coords]);
+
+  // ⭐ NORMALIZAMOS LAS IMÁGENES DE GOOGLE (fallback si vienen sin img)
+  const DEFAULT_IMG =
+    "https://images.unsplash.com/photo-1551782450-17144efb9c50?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+  const normalizedGoogleRestaurants = googleRestaurants.map((r) => ({
+    ...r,
+    img: r.img || DEFAULT_IMG,
+  }));
+
+  const allRestaurants = [...localRestaurants, ...normalizedGoogleRestaurants];
 
   return (
     <motion.div
@@ -103,8 +111,12 @@ export default function HomePage({ location, searchTerm }) {
               gridName="Restaurantes recomendados"
             />
             <RestaurantGrid
-              restaurantes={googleRestaurants}
-              gridName="Opciones populares a tu alrededor"
+              restaurantes={normalizedGoogleRestaurants}
+              gridName={
+                coords
+                  ? "Opciones populares cerca de tu dirección"
+                  : "Opciones populares (elige una dirección)"
+              }
             />
           </>
         )}

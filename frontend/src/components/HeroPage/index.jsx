@@ -8,7 +8,8 @@ import burgerMiddle from "../../assets/images/segmentedBurguer/Burgermiddle.webp
 import burgerMiddle2 from "../../assets/images/segmentedBurguer/Burgermiddle2.webp";
 import burgerBack from "../../assets/images/segmentedBurguer/Burgerback.webp";
 
-export default function HeroPage({ setLocation }) {
+// 👇 ahora también recibe setCoordinates
+export default function HeroPage({ setLocation, setCoordinates }) {
   return (
     <motion.div
       initial={{ opacity: 0, translateY: -50 }}
@@ -46,7 +47,10 @@ export default function HeroPage({ setLocation }) {
             />
           </motion.div>
           <AnimatePresence>
-            <DirectionBar setLocation={setLocation} />
+            <DirectionBar
+              setLocation={setLocation}
+              setCoordinates={setCoordinates} // 👈 AHORA SÍ
+            />
           </AnimatePresence>
         </motion.div>
         <img className={styles.wavySvg} src={wavySvg} alt="" />

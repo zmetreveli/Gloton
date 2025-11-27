@@ -4,6 +4,8 @@ import likeIcon from "../../assets/icons/like-svgrepo-com.svg";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
+const GOOGLE_PLACES_BASE = "http://localhost:3001/api/google-places";
+
 export default function RestaurantCard({
   restaurantName,
   restaurantCategory,
@@ -16,14 +18,52 @@ export default function RestaurantCard({
 }) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    if (id?.startsWith("google-")) {
-      console.warn("❗ Restaurante externo. No se navega a detalle.");
+  const handleClick = async () => {
+    // 🔹 Restaurantes de tu BBDD → navegar a la ficha normal
+    if (restaurantCategory !== "google") {
+      if (id) {
+        navigate("/restaurant/" + id);
+      } else {
+        console.warn("❗ ID del restaurante no definido. No se puede navegar.");
+      }
       return;
-    } else if (id) {
-      navigate("/restaurant/" + id);
-    } else {
-      console.warn("❗ ID del restaurante no definido. No se puede navegar.");
+    }
+
+    // 🔹 Restaurantes de Google → mostrar teléfono o mensaje
+    try {
+      const res = await fetch(`${GOOGLE_PLACES_BASE}/place/${id}`);
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(
+          "No se pudo obtener la información de este restaurante. Inténtalo más tarde."
+        );
+        return;
+      }
+
+      if (data.phone) {
+        alert(
+          `📞 Teléfono de ${data.name}:\n\n${data.phone}\n\nPuedes llamar directamente desde tu móvil.`
+        );
+      } else {
+        let msg = `⚠️ No hay teléfono disponible para ${data.name}.`;
+
+        if (data.open_now === false) {
+          msg += "\n\nParece que ahora mismo está cerrado.";
+        } else {
+          msg += "\n\nPuede estar temporalmente cerrado o sin datos públicos.";
+        }
+
+        alert(msg);
+      }
+    } catch (err) {
+      console.error(
+        "Error obteniendo detalles del restaurante de Google:",
+        err
+      );
+      alert(
+        "No se pudo obtener la información de este restaurante. Inténtalo más tarde."
+      );
     }
   };
 

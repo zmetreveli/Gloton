@@ -18,6 +18,7 @@ import LandbotChat from "./components/LandbotChat";
 import { RestaurantContext } from "./contexts/RestaurantContext";
 import FAQPage from "./components/FAQPage";
 import AboutUsPage from "./components/AboutUsPage";
+import "leaflet/dist/leaflet.css";
 
 function App() {
   const [shoppingList, setShoppingList] = useState([]);

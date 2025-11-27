@@ -6,6 +6,7 @@ import { getNearbyRestaurants } from "../../utils/fetchRestaurants";
 import { motion } from "framer-motion";
 import { UserContext } from "../../contexts/UserContext";
 import { api } from "../../utils/api";
+import MapView from "../MapView";
 
 // 🔹 Función helper para calcular distancia en METROS entre dos puntos (lat/lng)
 function getDistanceMeters(lat1, lng1, lat2, lng2) {
@@ -34,7 +35,7 @@ export default function HomePage({ location, searchTerm }) {
   const [googleRestaurants, setGoogleRestaurants] = useState([]);
 
   const [coordinates, setCoordinates] = useState(null);
-  const [isGeoLoading, setIsGeoLoading] = useState(true);
+  const [isGeoLoading, setIsGeoLoading] = useState(false);
 
   // 🔹 Filtros para Google
   const [filterType, setFilterType] = useState("all"); // all | restaurant | cafe | bar | bakery
@@ -42,20 +43,57 @@ export default function HomePage({ location, searchTerm }) {
   const [priceFilter, setPriceFilter] = useState("any"); // any | cheap | medium | expensive
   const [sortBy, setSortBy] = useState("rating"); // rating | reviews | distance
   const [distanceFilter, setDistanceFilter] = useState("any"); // any | 500 | 1000 | 2000 ...
+  const [viewMode, setViewMode] = useState("list"); // "list" | "map"
 
-  // 1) Geolocalización del navegador (solo si aún no tenemos coords)
+  // 🟡 A) Cuando cambia `location` (dirección elegida) → pedimos coords al BACKEND
   useEffect(() => {
-    if (coordinates) {
-      // Ya tenemos coords → no pedimos otra vez
-      setIsGeoLoading(false);
-      return;
-    }
+    const fetchCoordsFromLocation = async () => {
+      if (!location) return; // si no hay dirección, no hacemos nada
+
+      try {
+        setIsGeoLoading(true);
+        const res = await fetch(
+          `http://localhost:3001/api/geocode?text=${encodeURIComponent(
+            location
+          )}`
+        );
+        const data = await res.json();
+
+        if (res.ok && data.lat && data.lng) {
+          const coords = { lat: data.lat, lng: data.lng };
+          console.log("📍 Coords desde location (HomePage):", coords);
+          setCoordinates(coords);
+        } else {
+          console.warn(
+            "⚠️ No se pudieron obtener coords para location:",
+            location,
+            data
+          );
+        }
+      } catch (err) {
+        console.error(
+          "❌ Error geocodificando location en HomePage:",
+          err.message
+        );
+      } finally {
+        setIsGeoLoading(false);
+      }
+    };
+
+    fetchCoordsFromLocation();
+  }, [location]);
+
+  // 🟢 B) Fallback: si NO hay location ni coords → usar geolocalización del navegador
+  useEffect(() => {
+    // si ya hay dirección o coords, no hacemos geolocalización
+    if (location || coordinates) return;
 
     if (!navigator.geolocation) {
       console.warn("⚠️ Geolocalización no soportada por este navegador");
-      setIsGeoLoading(false);
       return;
     }
+
+    setIsGeoLoading(true);
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -63,7 +101,7 @@ export default function HomePage({ location, searchTerm }) {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         };
-        console.log("📍 Coords desde geolocalización:", coords);
+        console.log("📍 Coords desde geolocalización (fallback):", coords);
         setCoordinates(coords);
         setIsGeoLoading(false);
       },
@@ -72,7 +110,7 @@ export default function HomePage({ location, searchTerm }) {
         setIsGeoLoading(false);
       }
     );
-  }, [coordinates]);
+  }, [location, coordinates]);
 
   // 2) Restaurantes locales desde la BBDD
   useEffect(() => {
@@ -240,6 +278,47 @@ export default function HomePage({ location, searchTerm }) {
         </div>
         <img className={styles.borderImg} src={BorderImg} alt="" />
 
+        {/* 🔘 Toggle Lista / Mapa */}
+        <div
+          style={{
+            marginTop: "12px",
+            marginBottom: "12px",
+            display: "flex",
+            gap: "8px",
+            alignItems: "center",
+          }}
+        >
+          <span style={{ fontWeight: 600 }}>Vista:</span>
+          <button
+            onClick={() => setViewMode("list")}
+            style={{
+              padding: "6px 10px",
+              borderRadius: "999px",
+              border:
+                viewMode === "list" ? "2px solid #09827e" : "1px solid #ccc",
+              backgroundColor: viewMode === "list" ? "#e0f2f1" : "#ffffff",
+              cursor: "pointer",
+              fontSize: "0.85rem",
+            }}
+          >
+            Lista
+          </button>
+          <button
+            onClick={() => setViewMode("map")}
+            style={{
+              padding: "6px 10px",
+              borderRadius: "999px",
+              border:
+                viewMode === "map" ? "2px solid #09827e" : "1px solid #ccc",
+              backgroundColor: viewMode === "map" ? "#e0f2f1" : "#ffffff",
+              cursor: "pointer",
+              fontSize: "0.85rem",
+            }}
+          >
+            Mapa
+          </button>
+        </div>
+
         {/* 🔹 Barra de filtros solo para resultados de Google */}
         {!searchTerm && (
           <div
@@ -315,7 +394,7 @@ export default function HomePage({ location, searchTerm }) {
             )}
             gridName={`Tu búsqueda: ${searchTerm}`}
           />
-        ) : (
+        ) : viewMode === "list" ? (
           <>
             <RestaurantGrid
               restaurantes={localRestaurants.slice(0, 8)}
@@ -330,6 +409,19 @@ export default function HomePage({ location, searchTerm }) {
               }
             />
           </>
+        ) : (
+          // 🔹 Vista mapa
+          <div style={{ marginTop: "10px" }}>
+            <h2>
+              {coordinates
+                ? "Mapa de opciones a tu alrededor"
+                : "Mapa de opciones (sin ubicación precisa)"}
+            </h2>
+            <MapView
+              center={coordinates}
+              restaurants={filteredGoogleRestaurants}
+            />
+          </div>
         )}
       </div>
     </motion.div>

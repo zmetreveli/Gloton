@@ -60,24 +60,25 @@ The project integrates **location autocomplete**, **current-location detection**
 ## 🧩 Project Architecture
 
 Gloton/
-├── frontend/ # React + Vite SPA
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── utils/
-│ │ ├── contexts/
-│ │ └── assets/
-│ └── vite.config.js
+├── frontend/              # React + Vite SPA
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── utils/
+│   │   ├── contexts/
+│   │   └── assets/
+│   └── vite.config.js
 │
-├── backend/ # Express API + MongoDB
-│ ├── src/
-│ │ ├── models/ # Mongoose schemas
-│ │ ├── routes/ # REST endpoints
-│ │ ├── controllers/ # Business logic
-│ │ └── utils/
-│ └── server.js
+├── backend/               # Express API + MongoDB
+│   ├── src/
+│   │   ├── models/        # Mongoose schemas
+│   │   ├── routes/        # REST endpoints
+│   │   ├── controllers/   # Business logic
+│   │   └── utils/
+│   └── server.js
 │
 └── README.md
+
 
 
 ---

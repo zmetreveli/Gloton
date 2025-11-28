@@ -8,6 +8,9 @@ import { UserContext } from "../../contexts/UserContext";
 import { api } from "../../utils/api";
 import MapView from "../MapView";
 
+const API_BASE_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+
 // 🔹 Función helper para calcular distancia en METROS entre dos puntos (lat/lng)
 function getDistanceMeters(lat1, lng1, lat2, lng2) {
   const toRad = (x) => (x * Math.PI) / 180;

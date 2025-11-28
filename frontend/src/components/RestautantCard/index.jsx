@@ -240,3 +240,5 @@ export default function RestaurantCard({
     </>
   );
 }
+
+// terminado por fin

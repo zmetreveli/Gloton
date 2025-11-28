@@ -5,7 +5,12 @@ import likeIcon from "../../assets/icons/like-svgrepo-com.svg";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const GOOGLE_PLACES_BASE = "http://localhost:3001/api/google-places";
+// const GOOGLE_PLACES_BASE = "http://localhost:3001/api/google-places";
+
+const API_BASE_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+
+const GOOGLE_PLACES_BASE = `${API_BASE_URL}/api/google-places`;
 
 export default function RestaurantCard({
   restaurantName,

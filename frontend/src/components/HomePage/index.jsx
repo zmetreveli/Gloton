@@ -53,9 +53,7 @@ export default function HomePage({ location, searchTerm }) {
       try {
         setIsGeoLoading(true);
         const res = await fetch(
-          `http://localhost:3001/api/geocode?text=${encodeURIComponent(
-            location
-          )}`
+          `${API_BASE_URL}/api/geocode?text=${encodeURIComponent(location)}`
         );
         const data = await res.json();
 

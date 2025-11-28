@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
 
+const API_BASE_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+
 export default function DirectionBar({ setLocation, setCoordinates }) {
   const { register } = useForm();
   const [isLocationLoading, setIsLocationLoading] = useState(false);
@@ -32,9 +35,7 @@ export default function DirectionBar({ setLocation, setCoordinates }) {
     const fetchSuggestions = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/autocomplete?input=${encodeURIComponent(
-            value
-          )}`
+          `${API_BASE_URL}/api/autocomplete?input=${encodeURIComponent(value)}`
         );
         const data = await response.json();
         setSuggestions(data.suggestions || []);
@@ -113,7 +114,7 @@ export default function DirectionBar({ setLocation, setCoordinates }) {
     // 👉 Ahora pedimos las coords al BACKEND, no a Google directo
     try {
       const res = await fetch(
-        `http://localhost:3001/api/geocode?text=${encodeURIComponent(fullText)}`
+        `${API_BASE_URL}/api/geocode?text=${encodeURIComponent(fullText)}`
       );
       const data = await res.json();
 

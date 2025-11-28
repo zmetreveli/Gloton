@@ -50,8 +50,6 @@ The project integrates **location autocomplete**, **current-location detection**
 
 ## 📸 Screenshots
 
-> Replace `/screenshots/...png` with your real images
-
 <img width="2863" height="1699" alt="Screenshot from 2025-11-28 16-31-17" src="https://github.com/user-attachments/assets/bc0b8da2-e37c-426f-a2b2-301a7c2078bf" />
 
 <img width="2863" height="1699" alt="Screenshot from 2025-11-28 16-32-36" src="https://github.com/user-attachments/assets/6b772964-9bf4-49f7-8a8b-12913f9d8091" />

@@ -8,7 +8,7 @@ const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 1000,
+  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
   },
@@ -49,10 +49,9 @@ export const handleProfileUpdateSubmit = async (
   userId,
   setLocalUser
 ) => {
-
   let token = localStorage.getItem("token");
   token = JSON.parse(token);
- 
+
   try {
     const response = await api.patch(`/users/${userId}`, data, {
       headers: {
@@ -71,7 +70,6 @@ export const handlePasswordChangeSubmit = async (data, user, closeModal) => {
   const { currentPassword, newPassword } = data;
   let token = localStorage.getItem("token");
   token = JSON.parse(token);
- 
 
   try {
     const response = await axios.patch(
@@ -88,7 +86,6 @@ export const handlePasswordChangeSubmit = async (data, user, closeModal) => {
       }
     );
 
-   
     alert("Contraseña actualizada con éxito");
     closeModal();
   } catch (error) {
@@ -115,7 +112,6 @@ export const handleDelete = async (user, setUser, setIsModalOpen) => {
   }
 };
 
-
 export const handleRestaurantLoginSubmit = async (
   data,
   setLocalRestaurant,
@@ -123,7 +119,7 @@ export const handleRestaurantLoginSubmit = async (
 ) => {
   try {
     const response = await api.get("/restaurantes", data);
-    
+
     setStorageObject("token", response.data.token);
     setStorageObject("restaurantes", response.data.restaurant);
     setLocalRestaurant(response.data.restaurant);

@@ -84,7 +84,8 @@ export default function RestaurantCard({
       >
         <div className={styles.imgContainer}>
           <img
-            src={img}
+            // src={img}
+            src={img?.replace("http://", "https://")}
             className={styles.restaurantCardImg}
             alt={`Foto de ${restaurantName}`}
           />

@@ -191,65 +191,67 @@ export default function HomePage({ location, searchTerm }) {
     });
 
     // 4.2 Aplicamos filtros
-    return withDistance
-      .filter((r) => {
-        // Filtro por tipo
-        if (filterType === "all") return true;
-        const types = r.types || [];
+    return (
+      withDistance
+        // .filter((r) => {
+        //   // Filtro por tipo
+        //   if (filterType === "all") return true;
+        //   const types = r.types || [];
 
-        if (filterType === "restaurant") {
-          return types.includes("restaurant");
-        }
-        if (filterType === "cafe") {
-          return types.includes("cafe") || types.includes("coffee_shop");
-        }
-        if (filterType === "bar") {
-          return types.includes("bar");
-        }
-        if (filterType === "bakery") {
-          return types.includes("bakery");
-        }
-        return true;
-      })
-      .filter((r) => {
-        // Filtro por rating mínimo
-        const rating = r.puntuacion || 0;
-        return rating >= minRating;
-      })
-      .filter((r) => {
-        // Filtro por nivel de precio
-        if (priceFilter === "any") return true;
-        const lvl = r.price_level;
-        if (lvl == null) return true; // si no sabemos el precio, no lo excluimos
+        //   if (filterType === "restaurant") {
+        //     return types.includes("restaurant");
+        //   }
+        //   if (filterType === "cafe") {
+        //     return types.includes("cafe") || types.includes("coffee_shop");
+        //   }
+        //   if (filterType === "bar") {
+        //     return types.includes("bar");
+        //   }
+        //   if (filterType === "bakery") {
+        //     return types.includes("bakery");
+        //   }
+        //   return true;
+        // })
+        .filter((r) => {
+          // Filtro por rating mínimo
+          const rating = r.puntuacion || 0;
+          return rating >= minRating;
+        })
+        .filter((r) => {
+          // Filtro por nivel de precio
+          if (priceFilter === "any") return true;
+          const lvl = r.price_level;
+          if (lvl == null) return true; // si no sabemos el precio, no lo excluimos
 
-        if (priceFilter === "cheap") return lvl <= 1;
-        if (priceFilter === "medium") return lvl === 2;
-        if (priceFilter === "expensive") return lvl >= 3;
+          if (priceFilter === "cheap") return lvl <= 1;
+          if (priceFilter === "medium") return lvl === 2;
+          if (priceFilter === "expensive") return lvl >= 3;
 
-        return true;
-      })
-      .filter((r) => {
-        // Filtro por distancia máxima
-        if (distanceFilter === "any") return true;
-        const maxDistMeters = parseInt(distanceFilter, 10); // 500, 1000, 2000...
-        if (!r.distance && r.distance !== 0) return true; // si no sabemos distancia, no excluimos
-        return r.distance <= maxDistMeters;
-      })
-      .sort((a, b) => {
-        // Ordenar
-        if (sortBy === "rating") {
-          return (b.puntuacion || 0) - (a.puntuacion || 0);
-        }
-        if (sortBy === "reviews") {
-          return (b.votos || 0) - (a.votos || 0);
-        }
-        if (sortBy === "distance") {
-          const da = a.distance ?? Infinity;
-          const db = b.distance ?? Infinity;
-          return da - db; // de más cerca a más lejos
-        }
-        return 0;
-      });
+          return true;
+        })
+        .filter((r) => {
+          // Filtro por distancia máxima
+          if (distanceFilter === "any") return true;
+          const maxDistMeters = parseInt(distanceFilter, 10); // 500, 1000, 2000...
+          if (!r.distance && r.distance !== 0) return true; // si no sabemos distancia, no excluimos
+          return r.distance <= maxDistMeters;
+        })
+        .sort((a, b) => {
+          // Ordenar
+          if (sortBy === "rating") {
+            return (b.puntuacion || 0) - (a.puntuacion || 0);
+          }
+          if (sortBy === "reviews") {
+            return (b.votos || 0) - (a.votos || 0);
+          }
+          if (sortBy === "distance") {
+            const da = a.distance ?? Infinity;
+            const db = b.distance ?? Infinity;
+            return da - db; // de más cerca a más lejos
+          }
+          return 0;
+        })
+    );
   }, [
     googleRestaurants,
     coordinates,
@@ -280,7 +282,7 @@ export default function HomePage({ location, searchTerm }) {
         <img className={styles.borderImg} src={BorderImg} alt="" />
 
         {/* 🔘 Toggle Lista / Mapa */}
-        <div
+        {/* <div
           style={{
             marginTop: "12px",
             marginBottom: "12px",
@@ -318,7 +320,7 @@ export default function HomePage({ location, searchTerm }) {
           >
             Mapa
           </button>
-        </div>
+        </div> */}
 
         {/* 🔹 Barra de filtros solo para resultados de Google */}
         {!searchTerm && (
@@ -332,10 +334,10 @@ export default function HomePage({ location, searchTerm }) {
               fontSize: "0.9rem",
             }}
           >
-            <span style={{ fontWeight: 600 }}>Filtrar por:</span>
+            {/* <span style={{ fontWeight: 600 }}>Filtrar por:</span> */}
 
             {/* Tipo de negocio */}
-            <select
+            {/* <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
             >
@@ -344,10 +346,10 @@ export default function HomePage({ location, searchTerm }) {
               <option value="cafe">Cafeterías / Coffee</option>
               <option value="bar">Bares</option>
               <option value="bakery">Panaderías</option>
-            </select>
+            </select> */}
 
             {/* Rating mínimo */}
-            <select
+            {/* <select
               value={minRating}
               onChange={(e) => setMinRating(parseFloat(e.target.value))}
             >
@@ -355,10 +357,10 @@ export default function HomePage({ location, searchTerm }) {
               <option value={3}>⭐ 3.0+</option>
               <option value={4}>⭐ 4.0+</option>
               <option value={4.5}>⭐ 4.5+</option>
-            </select>
+            </select> */}
 
             {/* Precio */}
-            <select
+            {/* <select
               value={priceFilter}
               onChange={(e) => setPriceFilter(e.target.value)}
             >
@@ -366,10 +368,10 @@ export default function HomePage({ location, searchTerm }) {
               <option value="cheap">💸 Barato</option>
               <option value="medium">💶 Medio</option>
               <option value="expensive">💰 Caro</option>
-            </select>
+            </select> */}
 
             {/* Distancia */}
-            <select
+            {/* <select
               value={distanceFilter}
               onChange={(e) => setDistanceFilter(e.target.value)}
             >
@@ -377,14 +379,14 @@ export default function HomePage({ location, searchTerm }) {
               <option value="500">≤ 500 m</option>
               <option value="1000">≤ 1 km</option>
               <option value="2000">≤ 2 km</option>
-            </select>
+            </select> */}
 
             {/* Orden */}
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            {/* <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
               <option value="rating">Ordenar por rating</option>
               <option value="reviews">Ordenar por nº de opiniones</option>
               <option value="distance">Ordenar por distancia</option>
-            </select>
+            </select> */}
           </div>
         )}
 

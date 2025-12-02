@@ -398,7 +398,7 @@ export default function HomePage({ location, searchTerm }) {
         ) : viewMode === "list" ? (
           <>
             <RestaurantGrid
-              restaurantes={localRestaurants.slice(0, 8)}
+              restaurantes={localRestaurants.slice(0, 16)}
               gridName="Restaurantes recomendados"
             />
             <RestaurantGrid

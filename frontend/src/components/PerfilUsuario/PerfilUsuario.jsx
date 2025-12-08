@@ -27,7 +27,6 @@ function PerfilUsuario({
   modalState,
   changeModalState,
   setLogged,
-
   setIsPerfilUsuarioModalOpen,
 }) {
   const { user, setLocalUser } = useContext(UserContext);
@@ -102,7 +101,7 @@ function PerfilUsuario({
   };
 
   const handleChangePasswordClick = () => {
-    setIsChangingPassword(true);
+    setIsChangePasswordModalOpen(true);
     changeModalState(true);
   };
 
@@ -135,9 +134,12 @@ function PerfilUsuario({
     } else {
       return (
         <>
-          <p className={styles.campoP2} onClick={() => handleEditClick(field)}>
+          <span
+            className={styles.campoP2}
+            onClick={() => handleEditClick(field)}
+          >
             {userInfo[field] || "Agrega tu teléfono"}
-          </p>
+          </span>
           <img className={styles.pencilIcon} src={pencilIcon} alt="" />
         </>
       );
@@ -224,7 +226,8 @@ function PerfilUsuario({
   };
 
   const handleFormSubmit = (formData) => {
-    setIsUserProfileEditModal(false);
+    // Esta función parece no usarse, la dejo por si la necesitas más adelante
+    // setIsUserProfileEditModal(false);
   };
 
   const closeUserSession = () => {
@@ -289,6 +292,8 @@ function PerfilUsuario({
               Cerrar sesión
             </button>
             <div className={styles.separadorHeader}></div>
+
+            {/* Nombre */}
             <div className={styles.userInfoContainer}>
               <div className={styles.campoP}>
                 <b className={styles.userProfileBold}>Nombre:</b>{" "}
@@ -296,6 +301,8 @@ function PerfilUsuario({
                 <br />
               </div>
             </div>
+
+            {/* Email */}
             <div className={styles.userInfoContainer}>
               <div className={styles.campoP}>
                 <b className={styles.userProfileBold}>Email:</b>{" "}
@@ -303,16 +310,20 @@ function PerfilUsuario({
                 <br />
               </div>
             </div>
+
+            {/* Teléfono */}
             <div className={styles.userInfoContainer}>
-              <p className={styles.campoP}>
+              <div className={styles.campoP}>
                 <b className={styles.userProfileBold}>Teléfono:</b>{" "}
                 {renderEditableField("phone")}
-              </p>
+              </div>
             </div>
+
+            {/* Dirección */}
             <div className={styles.userInfoContainer}>
-              <p className={styles.campoP}>
+              <div className={styles.campoP}>
                 <b className={styles.userProfileBold}>Dirección:</b>{" "}
-                <p
+                <span
                   className={styles.campoP2}
                   onClick={() => {
                     setAddressModalIsOpen(true);
@@ -320,14 +331,16 @@ function PerfilUsuario({
                   }}
                 >
                   {(user && user.address) || "Agrega tu dirección"}
-                </p>
+                </span>
                 <img className={styles.pencilIcon} src={pencilIcon} alt="" />
-              </p>
+              </div>
             </div>
+
+            {/* Tarjeta de crédito */}
             <div className={styles.userInfoContainer}>
-              <p className={styles.campoP}>
+              <div className={styles.campoP}>
                 <b className={styles.userProfileBold}>Tarjeta de crédito:</b>{" "}
-                <p
+                <span
                   className={styles.campoP2}
                   onClick={() => {
                     setCardModalIsOpen(true);
@@ -337,10 +350,12 @@ function PerfilUsuario({
                   {user && user.creditCard
                     ? "•••• •••• •••• " + user.creditCard.number.slice(-4)
                     : "Agrega tu tarjeta"}
-                </p>
+                </span>
                 <img className={styles.pencilIcon} src={pencilIcon} alt="" />
-              </p>
+              </div>
             </div>
+
+            {/* Contraseña */}
             <div className={styles.userInfoContainer}>
               <p
                 className={styles.campoP2}
@@ -353,7 +368,10 @@ function PerfilUsuario({
               </p>
               <img className={styles.pencilIcon} src={pencilIcon} alt="" />
             </div>
+
             <div className={styles.separador}></div>
+
+            {/* Preferencias */}
             <div className={styles.preferenceContainer}>
               <div className={styles.preferenceTextContainer}>
                 <div className={styles.campoP}>

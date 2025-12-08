@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 export default function CreditCardModal({
   cardModalIsOpen,

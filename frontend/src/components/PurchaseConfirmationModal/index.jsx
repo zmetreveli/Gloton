@@ -15,7 +15,7 @@ import ErrorModal from "../ErrorModal";
 import { postOrder } from "../../utils/api";
 import { useNavigate } from "react-router";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 export default function PurchaseConfirmationModal({
   setPurchaseConfirmationModalIsOpen,

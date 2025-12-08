@@ -21,7 +21,7 @@ import CreditCardModal from "../CreditCardModal/index.jsx";
 import ChangePasswordModal from "../ChangePasswordModal";
 import { handlePasswordChangeSubmit } from "../../utils/Usercrud.js";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 function PerfilUsuario({
   modalState,

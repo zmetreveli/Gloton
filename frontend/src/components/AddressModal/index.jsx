@@ -1,11 +1,9 @@
-import { useForm } from "react-hook-form";
-import styles from "./styles.module.css";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
-import MapsComponent from "../MapsComponent";
-import AutoCompleteAddressInput from "../AutoCompleteAddressInput";
-import useOnclickOutside from "react-cool-onclickoutside";
+import styles from "./styles.module.css";
+
+const API_BASE_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
 
 export default function AddressModal({
   addressModalIsOpen,
@@ -13,98 +11,130 @@ export default function AddressModal({
   handleSaveClickAddress,
   optional,
 }) {
-  const ref = useOnclickOutside(() => {
-    setCoordinates("");
-    closeAddressModal();
-  });
+  const [value, setValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { register, handleSubmit, setValue: setFormValue } = useForm();
-  const [coordinates, setCoordinates] = useState("");
+  useEffect(() => {
+    if (addressModalIsOpen) {
+      setValue("");
+      setSuggestions([]);
+    }
+  }, [addressModalIsOpen]);
 
-  const onSubmit = (data) => {
-    const formattedAddress = `${data.address}. ${data.number}, ${data.extra}. ${data.cp}.`;
-    handleSaveClickAddress(formattedAddress);
+  useEffect(() => {
+    if (!value) {
+      setSuggestions([]);
+      return;
+    }
+
+    const fetchSuggestions = async () => {
+      try {
+        const res = await fetch(
+          `${API_BASE_URL}/api/autocomplete?input=${encodeURIComponent(value)}`
+        );
+        const data = await res.json();
+        setSuggestions(data.suggestions || []);
+      } catch (err) {
+        console.error("Error fetching suggestions (AddressModal):", err);
+      }
+    };
+
+    fetchSuggestions();
+  }, [value]);
+
+  const handleInputChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleSelectSuggestion = (suggestion) => {
+    const fullText = suggestion.placePrediction?.text?.text;
+
+    if (!fullText) {
+      setValue("");
+      return;
+    }
+
+    setValue(fullText);
+    setSuggestions([]);
+
+    handleSaveClickAddress(fullText);
     closeAddressModal();
-    setCoordinates("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value) return;
+
+    setIsSubmitting(true);
+    handleSaveClickAddress(value);
+    setIsSubmitting(false);
+    closeAddressModal();
+  };
+
+  const renderSuggestions = () => {
+    return suggestions.map((suggestion, idx) => {
+      const place = suggestion.placePrediction;
+      const mainText = place?.structuredFormat?.mainText?.text;
+      const fullText = place?.text?.text;
+
+      if (!fullText) return null;
+
+      return (
+        <div
+          key={idx}
+          className={styles.suggestionItem}
+          onClick={() => handleSelectSuggestion(suggestion)}
+        >
+          <strong>{mainText || "Sin nombre"}</strong>
+          <div>{fullText}</div>
+        </div>
+      );
+    });
   };
 
   return (
-    <AnimatePresence>
-      {addressModalIsOpen && (
-        <Modal
-          parentSelector={() => document.querySelector("#root")}
-          className={styles.modalSecondaryContent}
-          overlayClassName={styles.modalOverlay}
-          isOpen={addressModalIsOpen}
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className={styles.everything}
-            style={
-              optional && {
-                backdropFilter: "blur(0px)",
-                backgroundColor: "transparent",
-              }
-            }
+    <Modal
+      isOpen={addressModalIsOpen}
+      onRequestClose={closeAddressModal}
+      className={styles.modalContent}
+      overlayClassName={styles.modalOverlay}
+      parentSelector={() => document.querySelector("#root")}
+    >
+      <div className={styles.container}>
+        <button className={styles.closeButton} onClick={closeAddressModal}>
+          ×
+        </button>
+
+        <h2 className={styles.title}>
+          {optional ? "Añadir dirección de entrega" : "Tu dirección"}
+        </h2>
+
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type="text"
+            autoComplete="off"
+            placeholder="Escribe tu dirección"
+            value={value}
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+
+          {suggestions.length > 0 && (
+            <div className={styles.suggestionsContainer}>
+              {renderSuggestions()}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className={styles.saveButton}
+            disabled={!value || isSubmitting}
           >
-            <motion.div
-              layout
-              initial={{ opacity: 0, translateY: 100 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: -100 }}
-              transition={{ ease: "easeOut", duration: 0.2 }}
-              className={styles.mainContainer}
-              ref={ref}
-            >
-              <div className={styles.topText}>
-                <h2>Nueva dirección</h2>
-                <p>Introduce tus datos</p>
-              </div>
-
-              {coordinates ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ ease: "easeOut", duration: 0.8 }}
-                  className={styles.mapContainer}
-                >
-                  <MapsComponent coordinates={coordinates} />
-                </motion.div>
-              ) : (
-                <></>
-              )}
-
-              <div className={styles.inputContainer}>
-                <form
-                  className={styles.formElement}
-                  onSubmit={handleSubmit(onSubmit)}
-                  action=""
-                >
-                  <AutoCompleteAddressInput
-                    register={register}
-                    setFormValue={setFormValue}
-                    setCoordinates={setCoordinates}
-                    coordinates={coordinates}
-                  />
-                  {coordinates && (
-                    <button type="submit" className={styles.agregarTarjeta}>
-                      Agregar dirección
-                    </button>
-                  )}
-                </form>
-              </div>
-              {optional && (
-                <p style={{ paddingTop: "10px" }}>
-                  Esta direccion se utilizará sólo para este pedido
-                </p>
-              )}
-            </motion.div>
-          </motion.div>
-        </Modal>
-      )}
-    </AnimatePresence>
+            Guardar dirección
+          </button>
+        </form>
+      </div>
+    </Modal>
   );
 }

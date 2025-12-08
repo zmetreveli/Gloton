@@ -9,7 +9,7 @@ import axios from "axios";
 import { CartContext } from "../../contexts/CartContext.js";
 import { useNavigate } from "react-router";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 function OrderHistory({ historyModalIsOpen, setHistoryModalIsOpen }) {
   const { user } = useContext(UserContext);

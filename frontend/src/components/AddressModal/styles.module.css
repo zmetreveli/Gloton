@@ -1,4 +1,4 @@
-.modalOverlay {
+/* .modalOverlay {
   top: 0;
   left: 0;
   right: 0;
@@ -145,6 +145,175 @@ input::placeholder {
 .topText {
   display: flex;
   flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 0 0;
+  color: white;
+  font-size: 10px;
+}
+
+.cardImage {
+  padding: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 5px;
+}
+
+.formContainer > button {
+  margin-top: 15px;
+}
+
+.confirmButton {
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 25px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 20px;
+  font-family: "quicksand";
+}
+
+.confirmButton:hover {
+  background-color: white;
+  scale: 1.02;
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px 0px var(--secondary-color);
+}
+
+.mapContainer {
+  height: 200px;
+  width: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0 5px;
+}
+
+.formElement {
+  width: 100%;
+} */
+
+/* -------------------------- OVERLAY -------------------------- */
+/* Cubre toda la pantalla, desenfoca y oscurece un poco el fondo */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; /* por debajo del contenido del modal */
+  background: rgba(0, 0, 0, 0.35); /* oscuro pero no 100% */
+  backdrop-filter: blur(2px); /* efecto suave, no excesivo */
+  /* NO poner aquí opacity 0 o 100% que oculte el modal */
+}
+
+/* ------------------------- CONTENT -------------------------- */
+/* Caja centrada dentro del overlay, sin blur ni fondo oscuro */
+.modalContent {
+  position: absolute; /* dentro del overlay */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centrado */
+  z-index: 1001; /* encima del overlay */
+  outline: none;
+  border: none;
+  background: transparent; /* el color de fondo viene del contenedor interno (.mainContainer) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* No ocupamos toda la pantalla, solo el contenedor interior */
+  width: auto;
+  height: auto;
+  overflow: visible; /* el contenido interno controla scroll si hace falta */
+}
+
+/* -------------------- CONTENEDOR INTERNO -------------------- */
+/* Esta es tu caja blanca que realmente contiene el modal */
+.mainContainer {
+  position: relative;
+  width: 300px;
+  background-color: #ffffff; /* blanco limpio */
+  border-radius: 25px;
+  z-index: 1002; /* encima de todo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 5px;
+  /* Si quieres scroll interno, puedes poner max-height y overflow auto */
+}
+
+/* -------------------- OTROS ESTILOS (sin cambios) -------------------- */
+.cvcInput {
+  width: 49%;
+  outline: none;
+}
+
+input {
+  background-color: var(--secondary-color-lighter);
+  outline: none;
+  font-size: 0.85rem;
+  font-family: "quicksand";
+}
+
+input::placeholder {
+  font-size: 0.85rem;
+  font-family: "quicksand";
+}
+
+.inputContainer {
+  display: flex;
+  width: 90%;
+}
+
+.agregarTarjeta {
+  border-radius: 25px;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 20px;
+  margin-top: 10px;
+  font-family: "quicksand";
+  transition: 0.2s;
+}
+
+.agregarTarjeta:hover {
+  background-color: white;
+  scale: 1.02;
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px 0px var(--secondary-color);
+  animation: PulsingShadow 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes PulsingShadow {
+  from {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
+  50% {
+    box-shadow: 0 1px 13px 2px var(--secondary-color);
+  }
+  to {
+    box-shadow: 0 -1px 16px 0px var(--secondary-color);
+  }
 }
 
 .closeButton {

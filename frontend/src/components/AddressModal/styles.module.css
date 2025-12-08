@@ -367,7 +367,7 @@ input::placeholder {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.suggestionItem {
+/*! .suggestionItem {
   padding: 9px 12px;
   cursor: pointer;
   font-family: "quicksand", sans-serif;
@@ -375,30 +375,28 @@ input::placeholder {
 }
 .suggestionItem:hover {
   background-color: var(--secondary-color-lighter);
-}
+} */
 /* el contenedor relativo para que las sugerencias se posicione respecto al input */
 .inputWrapper {
   position: relative;
   width: 100%;
 }
 
-/* cada sugerencia */
 .suggestionItem {
-  position: absolute; /* se coloca encima del resto, dentro del wrapper */
-  top: 100%; /* justo debajo del input */
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 100%;
   padding: 8px 12px;
-  background: #ffffff; /* blanco limpio, mismo estilo que el modal */
-  border: 1px solid #ddd;
-  border-top: none; /* evitar doble borde con el input si quieres */
+  background: #ffffff;
+  /* border: 1px solid #ddd; */
+  border-top: none;
   font-family: "quicksand", sans-serif;
   cursor: pointer;
   transition: background 0.2s;
-  z-index: 1002; /* encima de casi todo dentro del modal */
+  z-index: 1002;
 }
 
-/* hover o foco */
 .suggestionItem:hover {
   background-color: var(--secondary-color-lighter);
 }

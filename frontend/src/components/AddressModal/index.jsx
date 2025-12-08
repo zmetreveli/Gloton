@@ -111,28 +111,18 @@ export default function AddressModal({
         </h2>
 
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            type="text"
-            autoComplete="off"
-            placeholder="Escribe tu dirección"
-            value={value}
-            onChange={handleInputChange}
-            className={styles.input}
-          />
+          <div className={styles.inputWrapper}>
+            <input
+              type="text"
+              autoComplete="off"
+              placeholder="Escribe tu dirección"
+              value={value}
+              onChange={handleInputChange}
+              className={styles.input}
+            />
 
-          {suggestions.length > 0 && (
-            <div className={styles.suggestionsContainer}>
-              {renderSuggestions()}
-            </div>
-          )}
-
-          <button
-            type="submit"
-            className={styles.saveButton}
-            disabled={!value || isSubmitting}
-          >
-            Guardar dirección
-          </button>
+            {suggestions.length > 0 && <>{renderSuggestions()}</>}
+          </div>
         </form>
       </div>
     </Modal>

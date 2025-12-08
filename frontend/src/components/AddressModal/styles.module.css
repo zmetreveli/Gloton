@@ -209,170 +209,196 @@ input::placeholder {
 } */
 
 /* -------------------------- OVERLAY -------------------------- */
-/* Cubre toda la pantalla, desenfoca y oscurece un poco el fondo */
 .modalOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000; /* por debajo del contenido del modal */
-  background: rgba(0, 0, 0, 0.35); /* oscuro pero no 100% */
-  backdrop-filter: blur(2px); /* efecto suave, no excesivo */
-  /* NO poner aquí opacity 0 o 100% que oculte el modal */
+  inset: 0; /* ocupa toda la pantalla */
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.18); /* sombreado suave, nada borroso */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ------------------------- CONTENT -------------------------- */
-/* Caja centrada dentro del overlay, sin blur ni fondo oscuro */
 .modalContent {
-  position: absolute; /* dentro del overlay */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* centrado */
-  z-index: 1001; /* encima del overlay */
+  position: relative;
+  z-index: 1001;
   outline: none;
   border: none;
-  background: transparent; /* el color de fondo viene del contenedor interno (.mainContainer) */
+  background: white; /* el fondo blanco viene del contenedor interno */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* No ocupamos toda la pantalla, solo el contenedor interior */
-  width: auto;
-  height: auto;
-  overflow: visible; /* el contenido interno controla scroll si hace falta */
+  height: 280px;
+  width: 100%;
+  max-width: 360px; /* tamaño compacto */
+  margin: 0 16px; /* margen lateral en móviles */
+  border-radius: 10px;
 }
 
 /* -------------------- CONTENEDOR INTERNO -------------------- */
-/* Esta es tu caja blanca que realmente contiene el modal */
 .mainContainer {
-  position: relative;
-  width: 300px;
-  background-color: #ffffff; /* blanco limpio */
-  border-radius: 25px;
-  z-index: 1002; /* encima de todo */
+  width: 100%;
+  background-color: #ffffff; /* blanco puro */
+  border-radius: 28px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18); /* sombra limpia */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  gap: 5px;
-  /* Si quieres scroll interno, puedes poner max-height y overflow auto */
+  gap: 14px;
+  position: relative;
 }
 
-/* -------------------- OTROS ESTILOS (sin cambios) -------------------- */
-.cvcInput {
-  width: 49%;
-  outline: none;
-}
-
-input {
-  background-color: var(--secondary-color-lighter);
-  outline: none;
-  font-size: 0.85rem;
-  font-family: "quicksand";
-}
-
-input::placeholder {
-  font-size: 0.85rem;
-  font-family: "quicksand";
-}
-
-.inputContainer {
-  display: flex;
-  width: 90%;
-}
-
-.agregarTarjeta {
-  border-radius: 25px;
-  width: 100%;
-  background-color: var(--secondary-color);
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  padding: 0 20px;
-  margin-top: 10px;
-  font-family: "quicksand";
-  transition: 0.2s;
-}
-
-.agregarTarjeta:hover {
-  background-color: white;
-  scale: 1.02;
-  color: var(--secondary-color);
-  box-shadow: 0 0 16px 0px var(--secondary-color);
-  animation: PulsingShadow 2s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes PulsingShadow {
-  from {
-    box-shadow: 0 -1px 16px 0px var(--secondary-color);
-  }
-  50% {
-    box-shadow: 0 1px 13px 2px var(--secondary-color);
-  }
-  to {
-    box-shadow: 0 -1px 16px 0px var(--secondary-color);
-  }
-}
-
+/* ----------------------- BOTÓN CERRAR ----------------------- */
 .closeButton {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--secondary-color); /* color teal/verde */
+  color: #ffffff;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
-  height: 20px;
-  width: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+/* -------------------------- TITULO -------------------------- */
+.modalTitle {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: "quicksand", sans-serif;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+/* --------------------- SUBTITULO/ICON TEXT --------------------- */
+.modalSubtitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "quicksand", sans-serif;
+  color: #4a4a4a; /* gris oscuro suave */
+  text-align: center;
+}
+
+/* -------------------------- INPUT -------------------------- */
+input {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--secondary-color-lighter); /* suave */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 0.93rem;
+  font-family: "quicksand", sans-serif;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(9, 130, 126, 0.25);
+}
+input::placeholder {
+  font-size: 0.93rem;
+  font-family: "quicksand", sans-serif;
+}
+
+/* ------------------------ BOTONES PRINCIPALES ------------------------ */
+.confirmButton,
+.agregarTarjeta {
+  width: 100%;
+  padding: 13px 0;
+  border: none;
+  border-radius: 22px;
   background-color: var(--secondary-color);
-  box-shadow: 0 0 0 0;
-  color: white;
-  font-size: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "quicksand", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, transform 0.1s;
+}
+.confirmButton:hover,
+.agregarTarjeta:hover {
+  background-color: #ffffff;
+  color: var(--secondary-color);
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
 }
 
-.cardImage {
-  padding: 20px;
-}
-
-.formContainer {
+/* ----------------------- BLOQUES DESTACADOS ----------------------- */
+.highlightBlock {
+  width: 100%;
+  background-color: #f7f7f7; /* gris muy claro */
+  border-radius: 18px;
+  padding: 12px 16px;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
-  gap: 5px;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.formContainer > button {
-  margin-top: 15px;
+.highlightBlock p {
+  margin: 0;
+  font-family: "quicksand", sans-serif;
+  color: #333333;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-.confirmButton {
-  background-color: var(--secondary-color);
-  color: white;
-  border-radius: 25px;
+/* ----------------------- SUGERENCIAS ----------------------- */
+.suggestionsContainer {
   width: 100%;
-  font-weight: bold;
-  font-size: 15px;
-  padding: 0 20px;
-  font-family: "quicksand";
+  max-height: 200px;
+  overflow-y: auto;
+  background: #ffffff; /* blanco limpio igual que el modal */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-.confirmButton:hover {
-  background-color: white;
-  scale: 1.02;
-  color: var(--secondary-color);
-  box-shadow: 0 0 16px 0px var(--secondary-color);
+.suggestionItem {
+  padding: 9px 12px;
+  cursor: pointer;
+  font-family: "quicksand", sans-serif;
+  transition: background 0.2s;
 }
-
-.mapContainer {
-  height: 200px;
-  width: 90%;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 0 5px;
+.suggestionItem:hover {
+  background-color: var(--secondary-color-lighter);
 }
-
-.formElement {
+/* el contenedor relativo para que las sugerencias se posicione respecto al input */
+.inputWrapper {
+  position: relative;
   width: 100%;
+}
+
+/* cada sugerencia */
+.suggestionItem {
+  position: absolute; /* se coloca encima del resto, dentro del wrapper */
+  top: 100%; /* justo debajo del input */
+  left: 0;
+  width: 100%;
+  padding: 8px 12px;
+  background: #ffffff; /* blanco limpio, mismo estilo que el modal */
+  border: 1px solid #ddd;
+  border-top: none; /* evitar doble borde con el input si quieres */
+  font-family: "quicksand", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 1002; /* encima de casi todo dentro del modal */
+}
+
+/* hover o foco */
+.suggestionItem:hover {
+  background-color: var(--secondary-color-lighter);
 }

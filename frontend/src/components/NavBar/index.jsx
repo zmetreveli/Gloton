@@ -32,10 +32,8 @@ export default function NavBar({
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
-      setLogged(true);
-    }
-  }, []);
+    setLogged(!!token);
+  }, [setLogged]);
 
   const handleUserModal = () => {
     setIsPerfilUsuarioModalOpen((currentState) => !currentState);
@@ -45,7 +43,7 @@ export default function NavBar({
     setIsUserRegisterModalOpen((currentState) => !currentState);
   };
 
-  if (logged === true) {
+  if (logged) {
     return (
       <>
         <motion.nav
@@ -55,36 +53,48 @@ export default function NavBar({
           className={styles.navBar}
         >
           <div onClick={() => navigate("/")} className={styles.logoContainer}>
-            <img className={styles.logo} src={logo} alt="" />
+            <img className={styles.logo} src={logo} alt="Gloton logo" />
           </div>
+
           <div className={styles.searchBarContainer}>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           </div>
+
           <div className={styles.rightContainer}>
             {location && (
               <div className={styles.locationContainer}>
                 <img
                   className={styles.locationIcon}
                   src={locationIcon}
-                  alt=""
+                  alt="Ubicación actual"
                 />
                 <p>{location}</p>
               </div>
             )}
+
             <div className={styles.navBarButtons}>
               {user && user.role === "RESTAURANT" && (
-                <button onClick={() => navigate("/dashboard")}>
+                <button
+                  type="button"
+                  onClick={() => navigate("/dashboard")}
+                  aria-label="Panel del restaurante"
+                >
                   <img className={styles.userIcon} src={shopIcon} alt="" />
                 </button>
               )}
-              <button onClick={handleUserModal}>
+
+              <button
+                type="button"
+                onClick={handleUserModal}
+                aria-label="Abrir perfil de usuario"
+              >
                 <img className={styles.userIcon} src={userIcon} alt="" />
               </button>
 
               <button
-                onClick={() => {
-                  setHistoryModalIsOpen(true);
-                }}
+                type="button"
+                onClick={() => setHistoryModalIsOpen(true)}
+                aria-label="Ver historial de pedidos"
               >
                 <img className={styles.listIcon} src={listIcon} alt="" />
               </button>
@@ -109,51 +119,57 @@ export default function NavBar({
         />
       </>
     );
-  } else {
-    return (
-      <>
-        <motion.nav
-          initial={{ translateY: -100 }}
-          animate={{ translateY: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          exit={{ translateY: -100 }}
-          className={styles.navBar}
-        >
-          <div
-            onClick={() => navigate("/")}
-            className={styles.logoContainerUnlogged}
-          >
-            <img className={styles.logoUnlogged} src={logo} alt="" />
-          </div>
-          <div className={styles.getStartedContainer}>
-            <button
-              className={styles.getStartedButton}
-              onClick={handleRegisterModal}
-            >
-              Empieza aquí
-            </button>
-          </div>
-        </motion.nav>
-        <AnimatePresence>
-          {isUserRegisterModalOpen && (
-            <UserRegisterModal
-              modalState={isUserRegisterModalOpen}
-              changeModalState={handleRegisterModal}
-              setLogged={setLogged}
-              setLoginModalOpen={setLoginModalOpen}
-              setIsUserRegisterModalOpen={setIsUserRegisterModalOpen}
-            />
-          )}
-        </AnimatePresence>
+  }
 
-        <AnimatePresence>
+  // NO logged
+  return (
+    <>
+      <motion.nav
+        initial={{ translateY: -100 }}
+        animate={{ translateY: 0 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        exit={{ translateY: -100 }}
+        className={styles.navBar}
+      >
+        <div
+          onClick={() => navigate("/")}
+          className={styles.logoContainerUnlogged}
+        >
+          <img className={styles.logoUnlogged} src={logo} alt="Gloton logo" />
+        </div>
+
+        <div className={styles.getStartedContainer}>
+          <button
+            type="button"
+            className={styles.getStartedButton}
+            onClick={handleRegisterModal}
+          >
+            Empieza aquí
+          </button>
+        </div>
+      </motion.nav>
+
+      <AnimatePresence>
+        {isUserRegisterModalOpen && (
+          <UserRegisterModal
+            modalState={isUserRegisterModalOpen}
+            changeModalState={handleRegisterModal}
+            setLogged={setLogged}
+            setLoginModalOpen={setLoginModalOpen}
+            setIsUserRegisterModalOpen={setIsUserRegisterModalOpen}
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {loginModalOpen && (
           <UserLoginModal
             setLogged={setLogged}
             loginModalOpen={loginModalOpen}
             setLoginModalOpen={setLoginModalOpen}
           />
-        </AnimatePresence>
-      </>
-    );
-  }
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
